@@ -4,36 +4,242 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Mini SPA Framework</title>
+    <title>Paradise HR - Human Experience Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/" data-link>MiniSPA</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/" data-link>Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about" data-link>About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/users" data-link>Users</a></li>
-                </ul>
+    <div class="app-container" id="appContainer">
+        <!-- Top Navigation -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid d-flex align-items-center">
+                <!-- Search Bar -->
+                <div class="navbar-search flex-grow-1 me-4">
+                    <div class="position-relative">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    </div>
+                </div>
+
+                <button class="navbar-toggler d-lg-none" type="button" onclick="toggleSidebar()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Right Icons -->
+                <div class="navbar-icons ms-auto">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link" href="#"><i class="bi bi-bell fs-5"></i></a>
+                        <a class="nav-link" href="#"><i class="bi bi-gear fs-5"></i></a>
+                        <a class="nav-link" href="#"><i class="bi bi-person-circle fs-5"></i></a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <main class="container my-4" id="app">
-        <!-- App content mounts here -->
-    </main>
 
-    <footer class="text-center py-3">
-        <small>Mini SPA Framework — inspired by article</small>
-    </footer>
+        <!-- Sidebar -->
+        <aside class="sidebar d-flex flex-column" id="sidebar">
+            <!-- Sidebar Header with Toggle -->
+            <div class="sidebar-header">
+                <!-- Toggle Button at top left -->
+                <button class="sidebar-toggle-btn" onclick="toggleSidebarCollapse()">
+                    <i class="bi bi-list"></i>
+                </button>
 
+                <!-- Brand -->
+                <div class="sidebar-brand d-flex align-items-center">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2316a34a'/%3E%3Ctext x='50' y='60' font-family='Arial' font-size='40' font-weight='bold' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E"
+                        alt="Paradise HR">
+                    <span>Paradise HR</span>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/" data-link data-tooltip="Dashboard">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/employees" data-link data-tooltip="Employees">
+                        <i class="bi bi-people"></i>
+                        <span>Employees</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/requests" data-link data-tooltip="Create a request">
+                        <i class="bi bi-file-text"></i>
+                        <span>Create a request</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/attendance" data-link data-tooltip="Attendance">
+                        <i class="bi bi-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/payroll" data-link data-tooltip="Payroll">
+                        <i class="bi bi-currency-dollar"></i>
+                        <span>Payroll</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/organization" data-link data-tooltip="Organization Chart">
+                        <i class="bi bi-diagram-3"></i>
+                        <span>Organization Chart</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Bottom Links -->
+            <div class="sidebar-bottom">
+                <a href="#" class="text-muted" data-tooltip="Thiết lập">
+                    <i class="bi bi-gear"></i>
+                    <span>Thiết lập</span>
+                </a>
+                <a href="#" class="text-danger" data-tooltip="Đăng xuất">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Đăng xuất</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="app">
+            <!-- Mobile Dashboard -->
+            <div class="mobile-dashboard d-block d-lg-none">
+                <!-- User Header -->
+                <div class="user-header">
+                    <div class="user-info">
+                        <div class="user-avatar">TV</div>
+                        <div class="user-details">
+                            <h3>Thiên Vũ</h3>
+                            <p>Tech Lead</p>
+                        </div>
+                    </div>
+                    <div class="date-badge">
+                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">10/2025</span>
+                    </div>
+                </div>
+
+                <!-- Time Card -->
+                <div class="time-card">
+                    <p class="mb-2 opacity-90">Thứ 3, 11/11/2025</p>
+                    <div class="time-info">
+                        <div>
+                            <small class="opacity-90">Giờ công tích lũy:</small>
+                            <div class="time-display">120.00</div>
+                        </div>
+                        <div class="text-end">
+                            <small class="opacity-90">Tổng lượng ước tính:</small>
+                            <div class="d-flex align-items-center">
+                                <span class="me-2">**********</span>
+                                <i class="bi bi-eye"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress" style="height: 4px;">
+                        <div class="progress-bar bg-warning" style="width: 60%"></div>
+                        <div class="progress-bar bg-light" style="width: 40%"></div>
+                    </div>
+                    <small class="opacity-90">Còn lại 11/26 ngày công</small>
+                </div>
+
+                <!-- Apps Grid -->
+                <div class="apps-grid">
+                    <a href="#" class="app-item">
+                        <div class="app-icon blue"><i class="bi bi-list-ul"></i></div>
+                        <span class="app-name">Hồ sơ</span>
+                    </a>
+                    <a href="#" class="app-item">
+                        <div class="app-icon purple"><i class="bi bi-pencil"></i></div>
+                        <span class="app-name">Đơn yêu cầu</span>
+                    </a>
+                    <a href="#" class="app-item">
+                        <div class="app-icon orange"><i class="bi bi-clock"></i></div>
+                        <span class="app-name">Giờ chấm công</span>
+                    </a>
+                    <a href="#" class="app-item">
+                        <div class="app-icon orange"><i class="bi bi-calendar"></i></div>
+                        <span class="app-name">Bảng công</span>
+                    </a>
+                    <a href="#" class="app-item">
+                        <div class="app-icon purple"><i class="bi bi-currency-dollar"></i></div>
+                        <span class="app-name">Bảng lương</span>
+                    </a>
+                    <a href="#" class="app-item">
+                        <div class="app-icon cyan"><i class="bi bi-shield-check"></i></div>
+                        <span class="app-name">Thông báo nội bộ</span>
+                    </a>
+                    <a href="#" class="app-item">
+                        <div class="app-icon red"><i class="bi bi-file-text"></i></div>
+                        <span class="app-name">Hợp đồng</span>
+                    </a>
+                    <a href="#" class="app-item">
+                        <div class="app-icon cyan"><i class="bi bi-share"></i></div>
+                        <span class="app-name">Báo cáo</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Desktop content mounts here -->
+            <div class="desktop-content d-none d-lg-block">
+                <!-- Desktop dashboard content -->
+            </div>
+        </main>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="bottom-nav d-flex d-lg-none">
+            <a href="#" class="bottom-nav-item">
+                <i class="bi bi-search"></i>
+                <span>Tìm kiếm</span>
+            </a>
+            <a href="#" class="bottom-nav-item">
+                <i class="bi bi-qr-code"></i>
+                <span>QR</span>
+            </a>
+            <a href="#" class="bottom-nav-item">
+                <i class="bi bi-calendar"></i>
+                <span>Lịch</span>
+            </a>
+            <a href="#" class="bottom-nav-item fab">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        function toggleSidebarCollapse() {
+            const appContainer = document.getElementById('appContainer');
+            const sidebar = document.getElementById('sidebar');
+
+            appContainer.classList.toggle('sidebar-collapsed');
+            sidebar.classList.toggle('collapsed');
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('show');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function (event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.querySelector('.navbar-toggler');
+
+            if (window.innerWidth <= 768 &&
+                !sidebar.contains(event.target) &&
+                !toggleBtn.contains(event.target) &&
+                sidebar.classList.contains('show')) {
+                sidebar.classList.remove('show');
+            }
+        });
+    </script>
     <script type="module" src="./app.js"></script>
     <script type="module" src="./main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
