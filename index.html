@@ -200,21 +200,29 @@
 
         <!-- Mobile Bottom Navigation -->
         <nav class="bottom-nav d-flex d-lg-none">
-            <a href="#" class="bottom-nav-item">
-                <i class="bi bi-search"></i>
-                <span>Tìm kiếm</span>
-            </a>
-            <a href="#" class="bottom-nav-item">
-                <i class="bi bi-qr-code"></i>
-                <span>QR</span>
-            </a>
-            <a href="#" class="bottom-nav-item">
-                <i class="bi bi-calendar"></i>
-                <span>Lịch</span>
-            </a>
-            <a href="#" class="bottom-nav-item fab">
-                <i class="bi bi-pencil"></i>
-            </a>
+            <div class="bottom-nav-left">
+                <a href="#" class="bottom-nav-item" data-link>
+                    <i class="bi bi-search"></i>
+                    <span>Search</span>
+                </a>
+        
+                <a href="#" class="bottom-nav-item" data-link>
+                    <i class="bi bi-qr-code-scan"></i>
+                    <span>Scan</span>
+                </a>
+        
+                <a href="/attendance" class="bottom-nav-item" data-link>
+                    <i class="bi bi-calendar-check"></i>
+                    <span>Check-in</span>
+                </a>
+            </div>
+        
+            <div class="bottom-nav-right">
+                <!-- FAB Button -->
+                <a href="/requests" class="bottom-nav-item fab" data-link>
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+            </div>
         </nav>
     </div>
 

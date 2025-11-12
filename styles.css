@@ -590,6 +590,7 @@ body {
         text-align: center;
     }
     
+    
     /* Bottom Navigation */
     .bottom-nav {
         position: fixed;
@@ -597,23 +598,33 @@ body {
         left: 20px;
         right: 20px;
         height: 80px;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 25px;
         box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.1),
-            0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+            0 8px 32px rgba(0, 0, 0, 0.08),
+            0 0 0 1px rgba(255, 255, 255, 0.1) inset;
         z-index: 1000;
-        padding: 0 20px;
+        padding: 0 24px;
         display: flex;
-        justify-content: space-around;
         align-items: center;
     }
     
-    .bottom-nav-item {
+    /* Container for left items */
+    .bottom-nav-left {
+        display: flex;
+        gap: 32px;
         flex: 1;
+    }
+    
+    /* Container for right FAB */
+    .bottom-nav-right {
+        flex: none;
+    }
+    
+    .bottom-nav-item {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -621,11 +632,12 @@ body {
         text-decoration: none;
         color: #64748b;
         transition: all 0.3s ease;
-        padding: 8px;
+        padding: 8px 12px;
         border-radius: 15px;
         position: relative;
         overflow: hidden;
         gap: 4px;
+        min-width: 50px;
     }
     
     .bottom-nav-item::before {
@@ -635,7 +647,7 @@ body {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.4);
         opacity: 0;
         transition: opacity 0.3s ease;
         border-radius: 15px;
@@ -646,16 +658,17 @@ body {
     }
     
     .bottom-nav-item i {
-        font-size: 20px;
+        font-size: 22px;
         color: #64748b;
         transition: color 0.3s ease;
     }
     
     .bottom-nav-item span {
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 500;
         color: #64748b;
         transition: color 0.3s ease;
+        margin-top: 2px;
     }
     
     .bottom-nav-item:hover i,
@@ -669,13 +682,15 @@ body {
         height: 56px;
         background: linear-gradient(135deg, #16a34a, #22c55e);
         border-radius: 50%;
-        margin: 0 8px;
         flex: none;
         box-shadow: 
-            0 4px 20px rgba(22, 163, 74, 0.3),
-            0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            0 4px 20px rgba(22, 163, 74, 0.25),
+            0 0 0 1px rgba(255, 255, 255, 0.2) inset;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+        position: relative;
+        top: -4px;
+        margin-left: 16px;
     }
     
     .bottom-nav-item.fab::before {
@@ -691,11 +706,11 @@ body {
     .bottom-nav-item.fab:hover {
         transform: scale(1.05);
         box-shadow: 
-            0 6px 25px rgba(22, 163, 74, 0.4),
-            0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+            0 6px 25px rgba(22, 163, 74, 0.35),
+            0 0 0 1px rgba(255, 255, 255, 0.25) inset;
     }
     
-    /* Home indicator (iOS style) */
+    /* Home indicator */
     .bottom-nav::after {
         content: '';
         position: absolute;
@@ -704,10 +719,11 @@ body {
         transform: translateX(-50%);
         width: 134px;
         height: 5px;
-        background: #000;
+        background: rgba(0, 0, 0, 0.3);
         border-radius: 3px;
-        opacity: 0.3;
     }
+    
+    /* ...existing code... */
 }
 
 /* ==========================================================================
