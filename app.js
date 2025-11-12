@@ -112,6 +112,7 @@ class Router {
         console.error(e);
       }
     }
+    
     // update history
     if (!opts.fromPop) {
       if (this.mode === "history") {
@@ -133,33 +134,57 @@ class Router {
         else location.hash = hash;
       }
     }
-    // load component (support component as class or async function returning class)
+    
     let Comp = route.component;
-    if (
-      typeof Comp === "function" &&
-      Comp.prototype &&
-      Comp.prototype.render === undefined
-    ) {
-      // could be factory loader: a function that returns a Promise (lazy)
-      const maybe = Comp();
-      if (maybe instanceof Promise) {
-        const mod = await maybe;
-        Comp = mod.default || mod;
-      } else {
-        Comp = maybe.default || maybe;
+
+    try {
+      // Nếu component là function (có thể là lazy loader)
+      if (typeof Comp === "function") {
+        // Kiểm tra xem có phải là class constructor không
+        if (Comp.prototype && Comp.prototype.constructor === Comp) {
+          // Đây là class constructor, sử dụng trực tiếp
+          // Không cần thay đổi gì
+        } else {
+          // Đây có thể là lazy loader function
+          const result = Comp();
+          if (result instanceof Promise) {
+            // Async import
+            const module = await result;
+            Comp = module.default || module;
+          } else {
+            // Sync function return
+            Comp = result;
+          }
+        }
       }
+
+      // Tạo instance
+      const instance = new Comp({ params, query: this._parseQuery() });
+      this.currentComponent = instance;
+
+      // render (string allowed)
+      const html = await instance.render();
+      this.outlet.innerHTML = "";
+      this.outlet.appendChild(
+        instance.setHTML(typeof html === "string" ? html : "")
+      );
+
+      if (instance.onMount) instance.onMount();
+      if (route.title) document.title = route.title;
+    } catch (error) {
+      console.error("Error loading component:", error);
+      console.error("Component type:", typeof Comp);
+      console.error("Component:", Comp);
+
+      // Fallback - hiển thị lỗi
+      this.outlet.innerHTML = `
+        <div style="padding: 20px; color: red; border: 1px solid red; margin: 20px;">
+          <h3>Error Loading Component</h3>
+          <p>Failed to load component for route: ${route.path}</p>
+          <p>Error: ${error.message}</p>
+        </div>
+      `;
     }
-    // Instantiate
-    const instance = new Comp({ params, query: this._parseQuery() });
-    this.currentComponent = instance;
-    // render (string allowed)
-    const html = await instance.render();
-    this.outlet.innerHTML = "";
-    this.outlet.appendChild(
-      instance.setHTML(typeof html === "string" ? html : "")
-    );
-    if (instance.onMount) instance.onMount();
-    if (route.title) document.title = route.title;
   }
 
   _parseQuery() {
