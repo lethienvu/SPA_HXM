@@ -1,0 +1,319 @@
+/**
+ * PARADISE HR - ICON SYSTEM
+ * SVG Sprite Icons với Paradise brand colors
+ * Colors: #71c11d (Green), #004c39 (Dark Green), #fbfcfc (White)
+ */
+
+/* Base icon class */
+.paradise-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    vertical-align: middle;
+    transition: all var(--duration-fast, 0.2s) var(--ease-out, ease-out);
+}
+
+/* Size variations */
+.paradise-icon--xs {
+    width: 16px;
+    height: 16px;
+}
+
+.paradise-icon--sm {
+    width: 20px;
+    height: 20px;
+}
+
+.paradise-icon--md {
+    width: 24px;
+    height: 24px;
+}
+
+.paradise-icon--lg {
+    width: 32px;
+    height: 32px;
+}
+
+.paradise-icon--xl {
+    width: 48px;
+    height: 48px;
+}
+
+.paradise-icon--2xl {
+    width: 64px;
+    height: 64px;
+}
+
+/* Color variations */
+.paradise-icon--primary {
+    color: var(--brand-primary, #72c31d);
+}
+
+.paradise-icon--secondary {
+    color: var(--brand-secondary, #71c11d);
+}
+
+.paradise-icon--dark {
+    color: var(--brand-dark, #004c39);
+}
+
+.paradise-icon--light {
+    color: var(--text-light, #fbfcfc);
+}
+
+.paradise-icon--success {
+    color: var(--color-success, #73c41d);
+}
+
+.paradise-icon--warning {
+    color: var(--color-warning, #f59e0b);
+}
+
+.paradise-icon--danger {
+    color: var(--color-danger, #ef4444);
+}
+
+.paradise-icon--info {
+    color: var(--color-info, #3b82f6);
+}
+
+/* Interactive states */
+.paradise-icon--interactive {
+    cursor: pointer;
+    transition: all var(--duration-fast, 0.2s) var(--ease-out, ease-out);
+}
+
+.paradise-icon--interactive:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.paradise-icon--interactive:active {
+    transform: scale(0.95);
+}
+
+/* Rotation animations */
+.paradise-icon--rotate {
+    animation: iconRotate 2s linear infinite;
+}
+
+.paradise-icon--spin {
+    animation: iconSpin 1s linear infinite;
+}
+
+.paradise-icon--pulse {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+/* Icon in button */
+.btn .paradise-icon {
+    margin-right: 0.5rem;
+    vertical-align: text-bottom;
+}
+
+.btn-icon-only .paradise-icon {
+    margin: 0;
+}
+
+/* Icon in nav links */
+.nav-link .paradise-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.sidebar-collapsed .nav-link .paradise-icon {
+    margin-right: 0;
+}
+
+/* Icon in input groups */
+.input-group-icon .paradise-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-secondary, #6b7280);
+    pointer-events: none;
+}
+
+.input-group-icon .form-control {
+    padding-left: 40px;
+}
+
+/* Icon badge */
+.paradise-icon-badge {
+    position: relative;
+    display: inline-block;
+}
+
+.paradise-icon-badge::after {
+    content: attr(data-badge);
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    background: var(--color-danger, #ef4444);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 9px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon with glass effect */
+.paradise-icon-glass {
+    padding: 12px;
+    background: var(--glass-primary, rgba(255, 255, 255, 0.7));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border-light, rgba(255, 255, 255, 0.18));
+    border-radius: var(--radius-md, 8px);
+    box-shadow: var(--shadow-glass-sm, 0 2px 8px rgba(0, 0, 0, 0.05));
+}
+
+/* Icon container for consistent spacing */
+.paradise-icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md, 8px);
+    transition: all var(--duration-fast, 0.2s) var(--ease-out, ease-out);
+}
+
+.paradise-icon-container--sm {
+    width: 32px;
+    height: 32px;
+}
+
+.paradise-icon-container--lg {
+    width: 48px;
+    height: 48px;
+}
+
+.paradise-icon-container--primary {
+    background: linear-gradient(135deg, #73c41d 0%, #71c11d 100%);
+    color: white;
+}
+
+.paradise-icon-container--secondary {
+    background: var(--bg-secondary, #f3f4f6);
+    color: var(--brand-primary, #72c31d);
+}
+
+.paradise-icon-container--glass {
+    background: var(--glass-primary, rgba(255, 255, 255, 0.7));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border-light, rgba(255, 255, 255, 0.18));
+}
+
+/* Keyframe animations */
+@keyframes iconRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes iconSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+/* Hover effects for icon containers */
+.paradise-icon-container--interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(114, 195, 29, 0.3);
+}
+
+.paradise-icon-container--interactive:active {
+    transform: translateY(0);
+}
+
+/* Icon grid for showcasing */
+.paradise-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+.paradise-icon-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    background: var(--glass-primary, rgba(255, 255, 255, 0.7));
+    border-radius: var(--radius-md, 8px);
+    transition: all var(--duration-fast, 0.2s) var(--ease-out, ease-out);
+}
+
+.paradise-icon-grid-item:hover {
+    background: var(--glass-secondary, rgba(255, 255, 255, 0.9));
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.paradise-icon-grid-label {
+    font-size: 11px;
+    color: var(--text-secondary, #6b7280);
+    text-align: center;
+    word-break: break-word;
+}
+
+/* Accessibility */
+.paradise-icon[aria-hidden="true"] {
+    pointer-events: none;
+}
+
+/* Print styles */
+@media print {
+    .paradise-icon {
+        color: #000 !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .paradise-icon--light {
+        color: var(--text-dark, #1f2937);
+    }
+
+    .paradise-icon-glass {
+        background: rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}

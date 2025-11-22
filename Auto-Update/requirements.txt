@@ -1,0 +1,16 @@
+# SPA Migration Tool Requirements
+
+# Core dependencies
+pyodbc>=4.0.39
+pathlib2>=2.3.7
+
+# Optional dependencies for enhanced functionality
+colorama>=0.4.6  # For colored terminal output
+python-dotenv>=1.0.0  # For environment variable support
+click>=8.1.7  # Alternative CLI framework (optional)
+
+# Development dependencies (optional)
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.0.0
+flake8>=6.0.0

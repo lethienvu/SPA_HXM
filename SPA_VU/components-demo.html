@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise HR - UI Components Demo</title>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Paradise HR Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: var(--space-8);
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            background: var(--glass-primary);
+            backdrop-filter: var(--blur-md);
+            -webkit-backdrop-filter: var(--blur-md);
+            border: 1px solid var(--glass-border-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-glass-sm);
+        }
+
+        .demo-title {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-bold);
+            color: var(--brand-primary);
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+        }
+
+        .demo-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+        }
+
+        .demo-button {
+            min-width: 150px;
+        }
+
+        .status-display {
+            background: var(--glass-secondary);
+            border: 1px solid var(--glass-border-medium);
+            border-radius: var(--radius-md);
+            padding: var(--space-3);
+            margin-top: var(--space-4);
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+
+        .hero-title {
+            font-size: var(--text-5xl);
+            font-weight: var(--font-bold);
+            color: var(--brand-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .hero-subtitle {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-6);
+        }
+
+        /* Force modal styles if CSS variables fail */
+        .modal-backdrop {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0, 0, 0, 0.5) !important;
+            z-index: 10000 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .modal {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+            max-width: 600px !important;
+            width: 90% !important;
+            max-height: 90vh !important;
+            overflow: hidden !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-container">
+        <!-- Hero Section -->
+        <div class="demo-section hero-section">
+            <h1 class="hero-title">🎭 Paradise HR Components</h1>
+            <p class="hero-subtitle">Interactive demo của tất cả UI components với glassmorphism effects</p>
+
+            <div class="demo-buttons">
+                <button class="btn btn-primary btn-lg demo-button" onclick="runQuickDemo()">
+                    <i class="bi bi-play-fill"></i>
+                    Quick Demo
+                </button>
+                <button class="btn btn-glass btn-lg demo-button" onclick="clearAll()">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    Reset All
+                </button>
+                <button class="btn btn-secondary btn-lg demo-button" onclick="toggleDarkMode()">
+                    <i class="bi bi-moon"></i>
+                    Dark Mode
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal Section -->
+        <div class="demo-section">
+            <h2 class="demo-title">
+                <i class="bi bi-window"></i>
+                Modal System
+            </h2>
+
+            <div class="demo-buttons">
+                <button class="btn btn-primary demo-button" onclick="showBasicModal()">
+                    Basic Modal
+                </button>
+                <button class="btn btn-success demo-button" onclick="showSuccessModal()">
+                    Success Modal
+                </button>
+                <button class="btn btn-warning demo-button" onclick="showWarningModal()">
+                    Warning Modal
+                </button>
+                <button class="btn btn-danger demo-button" onclick="showErrorModal()">
+                    Error Modal
+                </button>
+                <button class="btn btn-info demo-button" onclick="showInfoModal()">
+                    Info Modal
+                </button>
+                <button class="btn btn-secondary demo-button" onclick="showConfirmModal()">
+                    Confirm Dialog
+                </button>
+                <button class="btn btn-glass demo-button" onclick="showFormModal()">
+                    Form Modal
+                </button>
+            </div>
+        </div>
+
+        <!-- Toast Section -->
+        <div class="demo-section">
+            <h2 class="demo-title">
+                <i class="bi bi-bell"></i>
+                Toast Notifications
+            </h2>
+
+            <div class="demo-buttons">
+                <button class="btn btn-success demo-button" onclick="showSuccessToast()">
+                    Success Toast
+                </button>
+                <button class="btn btn-warning demo-button" onclick="showWarningToast()">
+                    Warning Toast
+                </button>
+                <button class="btn btn-danger demo-button" onclick="showErrorToast()">
+                    Error Toast
+                </button>
+                <button class="btn btn-info demo-button" onclick="showInfoToast()">
+                    Info Toast
+                </button>
+                <button class="btn btn-glass demo-button" onclick="showCustomToast()">
+                    Custom Toast
+                </button>
+                <button class="btn btn-secondary demo-button" onclick="showPersistentToast()">
+                    Persistent Toast
+                </button>
+                <button class="btn btn-ghost demo-button" onclick="UI.toast.clear()">
+                    Clear All
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading Section -->
+        <div class="demo-section">
+            <h2 class="demo-title">
+                <i class="bi bi-arrow-repeat"></i>
+                Loading System
+            </h2>
+
+            <div class="demo-buttons">
+                <button class="btn btn-primary demo-button" onclick="showFullScreenLoading()">
+                    Full Screen Loading
+                </button>
+                <button class="btn btn-secondary demo-button" id="buttonLoadingDemo" onclick="demoButtonLoading(this)">
+                    Button Loading Demo
+                </button>
+                <button class="btn btn-info demo-button" onclick="showProgressDemo()">
+                    Progress Bar Demo
+                </button>
+                <button class="btn btn-warning demo-button" onclick="showSkeletonDemo()">
+                    Skeleton Loading
+                </button>
+                <button class="btn btn-glass demo-button" onclick="showFetchDemo()">
+                    Fetch with Loading
+                </button>
+            </div>
+
+            <div id="progress-container"></div>
+            <div id="skeleton-container"></div>
+        </div>
+
+        <!-- Alert Section -->
+        <div class="demo-section">
+            <h2 class="demo-title">
+                <i class="bi bi-exclamation-triangle"></i>
+                Alert System
+            </h2>
+
+            <div class="demo-buttons">
+                <button class="btn btn-success demo-button" onclick="showSuccessAlert()">
+                    Success Alert
+                </button>
+                <button class="btn btn-warning demo-button" onclick="showWarningAlert()">
+                    Warning Alert
+                </button>
+                <button class="btn btn-danger demo-button" onclick="showErrorAlert()">
+                    Error Alert
+                </button>
+                <button class="btn btn-info demo-button" onclick="showInfoAlert()">
+                    Info Alert
+                </button>
+                <button class="btn btn-glass demo-button" onclick="showGlassAlert()">
+                    Glass Alert
+                </button>
+                <button class="btn btn-secondary demo-button" onclick="showTopBanner()">
+                    Top Banner
+                </button>
+                <button class="btn btn-ghost demo-button" onclick="UI.alert.dismissAll()">
+                    Dismiss All
+                </button>
+            </div>
+
+            <div id="alert-container"></div>
+        </div>
+
+        <!-- Integration Demo Section -->
+        <div class="demo-section">
+            <h2 class="demo-title">
+                <i class="bi bi-puzzle"></i>
+                SPA Integration Demo
+            </h2>
+
+            <div class="demo-grid">
+                <div>
+                    <h4>Auto Form Loading</h4>
+                    <form data-loading data-loading-text="Đang lưu..." onsubmit="return demoFormSubmit(event)">
+                        <div class="form-group mb-3">
+                            <label>Tên nhâ viên</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </form>
+                </div>
+
+                <div>
+                    <h4>Auto Confirm Actions</h4>
+                    <button class="btn btn-danger" data-confirm="Bạn có chắc chắn muốn xóa?"
+                        data-confirm-title="Xác nhận xóa" onclick="alert('Deleted!')">
+                        Xóa dữ liệu
+                    </button>
+
+                    <a href="#" class="btn btn-warning mt-2" data-confirm="Chuyển đến trang nguy hiểm?">
+                        Link nguy hiểm
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Display -->
+        <div class="demo-section">
+            <h3>Component Status</h3>
+            <div class="status-display" id="statusDisplay">
+                Initializing components...
+            </div>
+        </div>
+    </div>
+
+    <!-- UI Components -->
+    <script src="components/modal.js"></script>
+    <script src="components/toast.js"></script>
+    <script src="components/loading.js"></script>
+    <script src="components/alert.js"></script>
+    <script src="components/ui-components.js"></script>
+
+    <script>
+        // Update status display
+        function updateStatus(message) {
+            document.getElementById('statusDisplay').textContent =
+                new Date().toLocaleTimeString() + ': ' + message;
+        }
+
+        // Debug function - add to global scope
+        window.debugModal = function () {
+            console.log('=== MODAL DEBUG ===');
+            console.log('Modal class:', typeof Modal);
+            console.log('UIComponents class:', typeof UIComponents);
+            console.log('UI object:', window.UI);
+            console.log('UI.modal:', window.UI?.modal);
+            console.log('Modal root:', document.getElementById('modal-root'));
+
+            // Try direct modal creation
+            if (typeof Modal !== 'undefined') {
+                try {
+                    const modal = new Modal();
+                    const id = modal.create({
+                        title: 'Debug Modal',
+                        content: '<p>Direct modal creation test</p>'
+                    });
+                    console.log('Direct modal created with ID:', id);
+                } catch (e) {
+                    console.error('Direct modal error:', e);
+                }
+            }
+        };
+
+        // Wait for components to initialize
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                updateStatus('DOM loaded, checking classes...');
+
+                // Debug class availability
+                console.log('Classes check:');
+                console.log('- Modal:', typeof Modal);
+                console.log('- Toast:', typeof Toast);
+                console.log('- Loading:', typeof Loading);
+                console.log('- Alert:', typeof Alert);
+                console.log('- UIComponents:', typeof UIComponents);
+
+                // Initialize UI Components
+                if (typeof UIComponents !== 'undefined') {
+                    updateStatus('Initializing UIComponents...');
+                    window.uiComponents = new UIComponents();
+                    await window.uiComponents.init();
+
+                    updateStatus('Components initialized successfully!');
+                    console.log('UI object after init:', window.UI);
+
+                    // Add debug button
+                    const heroSection = document.querySelector('.hero-section .demo-buttons');
+                    const debugBtn = document.createElement('button');
+                    debugBtn.className = 'btn btn-warning btn-lg demo-button';
+                    debugBtn.innerHTML = '<i class="bi bi-bug"></i> Debug Modal';
+                    debugBtn.onclick = window.debugModal;
+                    heroSection.appendChild(debugBtn);
+
+                } else {
+                    updateStatus('Error: UIComponents not found');
+                    console.error('UIComponents class not found!');
+                }
+            } catch (error) {
+                updateStatus('Error initializing components: ' + error.message);
+                console.error('Component initialization error:', error);
+            }
+        });
+
+        // =================================================================
+        // MODAL DEMOS
+        // =================================================================
+
+        function showBasicModal() {
+            console.log('showBasicModal called');
+            console.log('UI object:', window.UI);
+            console.log('UI.modal:', window.UI?.modal);
+
+            // Fallback: Try direct modal creation if UI.modal not available
+            if (!window.UI || !window.UI.modal) {
+                updateStatus('UI.modal not available, trying direct creation...');
+
+                if (typeof Modal !== 'undefined') {
+                    try {
+                        const modal = new Modal();
+                        const modalId = modal.create({
+                            title: 'Basic Modal Demo (Direct)',
+                            content: `
+                                <p>Đây là modal được tạo trực tiếp từ Modal class.</p>
+                                <p>Nếu bạn thấy modal này, nghĩa là:</p>
+                                <ul>
+                                    <li>Modal class hoạt động ✅</li>
+                                    <li>Vấn đề là ở UI object hoặc UIComponents</li>
+                                    <li>CSS có thể cần fallback styles</li>
+                                </ul>
+                            `,
+                            size: 'md'
+                        });
+                        updateStatus('Direct modal created: ' + modalId);
+                        return;
+                    } catch (error) {
+                        updateStatus('Direct modal error: ' + error.message);
+                        console.error('Direct modal error:', error);
+                        return;
+                    }
+                } else {
+                    updateStatus('Modal class not found!');
+                    return;
+                }
+            }
+
+            const modalId = UI.modal.show({
+                title: 'Basic Modal Demo',
+                content: `
+                    <p>Đây là một modal cơ bản với glassmorphism effect.</p>
+                    <p>Modal hỗ trợ:</p>
+                    <ul>
+                        <li>Glassmorphism background</li>
+                        <li>Smooth animations</li>
+                        <li>Keyboard navigation (ESC)</li>
+                        <li>Click outside to close</li>
+                        <li>Responsive design</li>
+                    </ul>
+                `,
+                size: 'md',
+                onShow: (id) => updateStatus('Basic modal opened: ' + id)
+            });
+        }
+
+        function showSuccessModal() {
+            UI.modal.success({
+                title: 'Thành công!',
+                content: 'Thao tác đã được thực hiện thành công.',
+                onConfirm: () => updateStatus('Success modal confirmed')
+            });
+        }
+
+        function showWarningModal() {
+            UI.modal.warning({
+                title: 'Cảnh báo',
+                content: 'Vui lòng kiểm tra lại thông tin trước khi tiếp tục.',
+                confirmText: 'Tiếp tục',
+                cancelText: 'Hủy',
+                onConfirm: () => updateStatus('Warning confirmed'),
+                onCancel: () => updateStatus('Warning cancelled')
+            });
+        }
+
+        function showErrorModal() {
+            UI.modal.error({
+                title: 'Lỗi hệ thống',
+                content: 'Đã xảy ra lỗi không mong muốn. Vui lòng thử lại sau.',
+                confirmText: 'Thử lại',
+                onConfirm: () => updateStatus('Error modal - retry clicked')
+            });
+        }
+
+        function showInfoModal() {
+            UI.modal.info({
+                title: 'Thông tin',
+                content: 'Hệ thống sẽ bảo trì từ 2:00 - 4:00 sáng mai.',
+                confirmText: 'Đã hiểu'
+            });
+        }
+
+        function showConfirmModal() {
+            UI.modal.confirm({
+                title: 'Xác nhận xóa',
+                content: 'Bạn có chắc chắn muốn xóa 5 nhân viên đã chọn? Hành động này không thể hoàn tác.',
+                confirmText: 'Xóa',
+                cancelText: 'Hủy',
+                type: 'error',
+                onConfirm: () => {
+                    updateStatus('Confirm dialog - confirmed');
+                    UI.toast.success('Đã xóa thành công!');
+                },
+                onCancel: () => updateStatus('Confirm dialog - cancelled')
+            });
+        }
+
+        function showFormModal() {
+            const form = document.createElement('form');
+            form.innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label>Họ tên *</label>
+                            <input type="text" class="form-control" name="fullName" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label>Email *</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label>Phòng ban</label>
+                            <select class="form-control" name="department">
+                                <option>Nhân sự</option>
+                                <option>Kỹ thuật</option>
+                                <option>Marketing</option>
+                                <option>Tài chính</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label>Chức vụ</label>
+                            <input type="text" class="form-control" name="position">
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            UI.modal.show({
+                title: 'Thêm nhân viên mới',
+                content: form,
+                size: 'lg',
+                confirmText: 'Lưu',
+                cancelText: 'Hủy',
+                onConfirm: (modalId) => {
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData);
+
+                    if (!data.fullName || !data.email) {
+                        UI.toast.error('Vui lòng điền đầy đủ thông tin bắt buộc');
+                        return false; // Keep modal open
+                    }
+
+                    updateStatus('Form submitted: ' + JSON.stringify(data));
+                    UI.toast.success('Nhân viên đã được thêm thành công!');
+                    return true; // Close modal
+                }
+            });
+        }
+
+        // =================================================================
+        // TOAST DEMOS
+        // =================================================================
+
+        function showSuccessToast() {
+            UI.toast.success('Dữ liệu đã được lưu thành công!', {
+                duration: 3000
+            });
+        }
+
+        function showWarningToast() {
+            UI.toast.warning('Vui lòng kiểm tra lại thông tin trước khi lưu', {
+                duration: 4000
+            });
+        }
+
+        function showErrorToast() {
+            UI.toast.error('Không thể kết nối đến server', {
+                duration: 5000,
+                actions: [{
+                    text: 'Thử lại',
+                    type: 'primary',
+                    handler: () => {
+                        updateStatus('Error toast - retry clicked');
+                        UI.toast.info('Đang thử lại...');
+                    }
+                }]
+            });
+        }
+
+        function showInfoToast() {
+            UI.toast.info('Có 3 thông báo mới chưa đọc', {
+                onClick: () => updateStatus('Info toast clicked'),
+                duration: 4000
+            });
+        }
+
+        function showCustomToast() {
+            const customMessage = document.createElement('div');
+            customMessage.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-download me-2"></i>
+                    <div>
+                        <strong>Tải file thành công</strong><br>
+                        <small>document.pdf (2.3 MB)</small>
+                    </div>
+                </div>
+            `;
+
+            UI.toast.show(customMessage, {
+                type: 'success',
+                title: null,
+                duration: 5000,
+                showIcon: false,
+                customClass: 'custom-download-toast'
+            });
+        }
+
+        function showPersistentToast() {
+            UI.toast.warning('Phiên làm việc sắp hết hạn', {
+                duration: 0, // Persistent
+                title: 'Cảnh báo hệ thống',
+                actions: [
+                    {
+                        text: 'Gia hạn',
+                        type: 'primary',
+                        handler: () => {
+                            updateStatus('Session extended');
+                            UI.toast.success('Phiên làm việc đã được gia hạn');
+                        }
+                    },
+                    {
+                        text: 'Đăng xuất',
+                        type: 'secondary',
+                        handler: () => {
+                            updateStatus('User logged out');
+                        }
+                    }
+                ]
+            });
+        }
+
+        // =================================================================
+        // LOADING DEMOS
+        // =================================================================
+
+        function showFullScreenLoading() {
+            const loadingId = UI.loading.show({
+                message: 'Đang tải dữ liệu...',
+                spinner: 'border',
+                size: 'lg'
+            });
+
+            setTimeout(() => {
+                UI.loading.hide(loadingId);
+                UI.toast.success('Dữ liệu đã được tải thành công!');
+            }, 3000);
+        }
+
+        function demoButtonLoading(button) {
+            const loading = UI.loading.button(button, 'Đang xử lý...');
+
+            setTimeout(() => {
+                loading.hide();
+                UI.toast.success('Xử lý hoàn tất!');
+            }, 2000);
+        }
+
+        function showProgressDemo() {
+            const container = document.getElementById('progress-container');
+
+            const progress = UI.loading.progress({
+                value: 0,
+                max: 100,
+                showLabel: true,
+                label: 'Đang upload file...',
+                animated: true
+            });
+
+            container.appendChild(progress.element);
+
+            let value = 0;
+            const interval = setInterval(() => {
+                value += Math.random() * 15;
+                if (value > 100) value = 100;
+
+                progress.update(value);
+
+                if (value >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        progress.destroy();
+                        UI.toast.success('Upload hoàn tất!');
+                    }, 1000);
+                }
+            }, 200);
+        }
+
+        function showSkeletonDemo() {
+            const container = document.getElementById('skeleton-container');
+            container.innerHTML = `
+                <h5 class="mt-4">Skeleton Loading Demo</h5>
+                <div id="skeleton-list"></div>
+            `;
+
+            const listContainer = container.querySelector('#skeleton-list');
+
+            // Show skeleton
+            UI.loading.createSkeletonList(listContainer, 3, 'list');
+
+            // Simulate data loading
+            setTimeout(() => {
+                UI.loading.removeSkeleton(listContainer);
+                listContainer.innerHTML = `
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="avatar me-3" style="width: 48px; height: 48px; background: var(--brand-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">A</div>
+                        <div>
+                            <strong>Nguyễn Văn A</strong><br>
+                            <small class="text-muted">Nhân viên - Phòng IT</small>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="avatar me-3" style="width: 48px; height: 48px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">B</div>
+                        <div>
+                            <strong>Trần Thị B</strong><br>
+                            <small class="text-muted">Trưởng phòng - Phòng HR</small>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="avatar me-3" style="width: 48px; height: 48px; background: var(--color-info); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">C</div>
+                        <div>
+                            <strong>Lê Văn C</strong><br>
+                            <small class="text-muted">Chuyên viên - Phòng Marketing</small>
+                        </div>
+                    </div>
+                `;
+                UI.toast.success('Dữ liệu đã được tải!');
+            }, 2000);
+        }
+
+        function showFetchDemo() {
+            // Demo sử dụng fetch với auto-loading
+            UI.loading.withLoading(
+                // Simulate API call
+                new Promise(resolve => setTimeout(resolve, 2000)),
+                'Đang tải từ API...'
+            ).then(() => {
+                UI.toast.success('API call thành công!');
+            });
+        }
+
+        // =================================================================
+        // ALERT DEMOS
+        // =================================================================
+
+        function showSuccessAlert() {
+            UI.alert.success('Thao tác đã được thực hiện thành công!', {
+                container: document.getElementById('alert-container')
+            });
+        }
+
+        function showWarningAlert() {
+            UI.alert.warning('Vui lòng kiểm tra lại thông tin trước khi tiếp tục', {
+                container: document.getElementById('alert-container'),
+                actions: [{
+                    text: 'Kiểm tra ngay',
+                    type: 'warning',
+                    handler: () => updateStatus('Warning alert - check clicked')
+                }]
+            });
+        }
+
+        function showErrorAlert() {
+            UI.alert.error('Đã xảy ra lỗi trong quá trình xử lý dữ liệu', {
+                container: document.getElementById('alert-container'),
+                dismissible: true,
+                actions: [
+                    {
+                        text: 'Thử lại',
+                        type: 'primary',
+                        handler: () => updateStatus('Error alert - retry clicked')
+                    },
+                    {
+                        text: 'Báo cáo lỗi',
+                        type: 'secondary',
+                        handler: () => updateStatus('Error alert - report clicked')
+                    }
+                ]
+            });
+        }
+
+        function showInfoAlert() {
+            UI.alert.info('Hệ thống sẽ được cập nhật với tính năng mới vào cuối tuần này', {
+                container: document.getElementById('alert-container'),
+                glass: true
+            });
+        }
+
+        function showGlassAlert() {
+            UI.alert.success('Glass effect alert với glassmorphism background', {
+                container: document.getElementById('alert-container'),
+                glass: true,
+                showIcon: true
+            });
+        }
+
+        function showTopBanner() {
+            UI.alert.banner('🎉 Chào mừng bạn đến với Paradise HR v2.0! Khám phá tính năng mới ngay hôm nay.', {
+                type: 'success',
+                position: 'top',
+                dismissible: true
+            });
+        }
+
+        // =================================================================
+        // INTEGRATION DEMOS
+        // =================================================================
+
+        function demoFormSubmit(event) {
+            event.preventDefault();
+
+            // Form sẽ tự show loading do có data-loading attribute
+
+            // Simulate async operation
+            setTimeout(() => {
+                // Hide loading manually (normally would be done after API response)
+                const submitBtn = event.target.querySelector('button[type="submit"]');
+                UI.loading.hideButtonLoading(submitBtn);
+
+                UI.toast.success('Form đã được lưu thành công!');
+                updateStatus('Form submitted with auto-loading');
+            }, 2000);
+
+            return false;
+        }
+
+        // =================================================================
+        // UTILITY FUNCTIONS
+        // =================================================================
+
+        function runQuickDemo() {
+            updateStatus('Running quick demo...');
+
+            // Sequence of demos
+            setTimeout(() => UI.toast.info('Bắt đầu demo...'), 100);
+            setTimeout(() => UI.toast.success('Toast thành công!'), 800);
+            setTimeout(() => UI.alert.warning('Alert cảnh báo!', {
+                container: document.getElementById('alert-container'),
+                duration: 3000
+            }), 1500);
+            setTimeout(() => {
+                const loadingId = UI.loading.show({ message: 'Demo loading...' });
+                setTimeout(() => {
+                    UI.loading.hide(loadingId);
+                    UI.modal.success({
+                        title: 'Demo hoàn tất!',
+                        content: 'Tất cả components đã được demo thành công.',
+                        confirmText: 'Tuyệt vời!'
+                    });
+                }, 1500);
+            }, 2200);
+        }
+
+        function clearAll() {
+            UI.modal.closeAll();
+            UI.toast.clear();
+            UI.loading.clearAll();
+            UI.alert.dismissAll();
+
+            // Clear demo containers
+            document.getElementById('progress-container').innerHTML = '';
+            document.getElementById('skeleton-container').innerHTML = '';
+            document.getElementById('alert-container').innerHTML = '';
+
+            updateStatus('All components cleared');
+            UI.toast.info('Đã xóa tất cả components');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+
+            if (isDark) {
+                document.documentElement.style.setProperty('--glass-primary', 'rgba(0, 0, 0, 0.25)');
+                document.documentElement.style.setProperty('--glass-border-light', 'rgba(255, 255, 255, 0.1)');
+                document.documentElement.style.setProperty('--text-primary', '#FFFFFF');
+                document.documentElement.style.setProperty('--text-secondary', '#D1D5DB');
+            } else {
+                document.documentElement.style.removeProperty('--glass-primary');
+                document.documentElement.style.removeProperty('--glass-border-light');
+                document.documentElement.style.removeProperty('--text-primary');
+                document.documentElement.style.removeProperty('--text-secondary');
+            }
+
+            UI.toast.info(isDark ? 'Đã bật Dark Mode' : 'Đã tắt Dark Mode');
+        }
+    </script>
+</body>
+
+</html>
