@@ -180,6 +180,9 @@ class Router {
 
       if (instance.onMount) instance.onMount();
       if (route.title) document.title = route.title;
+
+      // Update active nav link
+      this.updateActiveNavLink(route);
     } catch (error) {
       console.error("Error loading component:", error);
       console.error("Component type:", typeof Comp);
@@ -193,6 +196,24 @@ class Router {
           <p>Error: ${error.message}</p>
         </div>
       `;
+    }
+  }
+
+  updateActiveNavLink(route) {
+    // Remove active class from all nav links
+    document.querySelectorAll(".sidebar-nav .nav-link").forEach((link) => {
+      link.classList.remove("active");
+    });
+
+    // Add active class to current route
+    const currentPath = route.path;
+    if (currentPath !== "*") {
+      const activeLink = document.querySelector(
+        `.sidebar-nav .nav-link[href="${currentPath}"]`
+      );
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
     }
   }
 

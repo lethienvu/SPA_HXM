@@ -5,10 +5,15 @@
 
 class ParadiseIconsInline {
   static iconMap = {
-    // Basic icons với simplified SVG
+    payslip: {
+      tone1: ` <path class="tone-2" d="m24,19c0,1.654-1.346,3-3,3v1c0,.553-.448,1-1,1s-1-.447-1-1v-1h-.268c-1.067,0-2.063-.574-2.598-1.499-.276-.479-.113-1.09.365-1.366.477-.278,1.09-.113,1.366.364.179.31.511.501.867.501h2.268c.551,0,1-.448,1-1,0-.379-.271-.698-.644-.761l-3.041-.506c-1.342-.224-2.315-1.374-2.315-2.733,0-1.654,1.346-3,3-3v-1c0-.553.448-1,1-1s1,.447,1,1v1h.268c1.067,0,2.063.574,2.598,1.499.276.479.113,1.09-.365,1.366-.477.278-1.089.114-1.366-.364-.179-.31-.511-.501-.867-.501h-2.268c-.551,0-1,.448-1,1,0,.379.271.698.644.761l3.041.506c1.342.224,2.315,1.374,2.315,2.733ZM5,4h1c.552,0,1-.447,1-1s.449-1,1-1h2c.551,0,1,.448,1,1s.448,1,1,1h1c1.654,0,3,1.346,3,3v2c0,.553.448,1,1,1s1-.447,1-1v-2c0-2.757-2.243-5-5-5h-.171c-.413-1.164-1.525-2-2.829-2h-2c-1.304,0-2.416.836-2.829,2h-.171C2.243,2,0,4.243,0,7v12c0,2.757,2.243,5,5,5h8c.421,0,.841-.053,1.249-.157.535-.138.857-.683.72-1.217-.137-.535-.68-.859-1.217-.721-.245.062-.498.095-.751.095H5c-1.654,0-3-1.346-3-3V7c0-1.654,1.346-3,3-3Z"/>
+  <path class="tone-1" d="m9.727,6.793c.391.391.391,1.023,0,1.414l-2.179,2.179c-.409.409-.946.613-1.483.613s-1.074-.204-1.483-.613l-1.288-1.289c-.391-.391-.391-1.024,0-1.414.391-.391,1.023-.391,1.414,0l1.288,1.289c.033.033.105.033.139,0l2.179-2.179c.391-.391,1.023-.391,1.414,0h-.001Z"/>`,
+      tone2: `<path class="tone-1" d="m9.727,12.793c.391.391.391,1.023,0,1.414l-2.179,2.179c-.409.409-.946.613-1.483.613s-1.074-.204-1.483-.613l-1.288-1.289c-.391-.391-.391-1.024,0-1.414.391-.391,1.023-.391,1.414,0l1.288,1.289c.033.033.105.033.139,0l2.179-2.179c.391-.391,1.023-.391,1.414,0h-.001Z"/>`,
+    },
+
     notification: {
-      tone1: `<path class="tone-1" d="M21 19V20H3V19L5 17V11C5 7.9 7.03 5.17 10 4.29C10 4.19 10 4.1 10 4C10 2.34 11.34 1 13 1C14.66 1 16 2.34 16 4C16 4.1 16 4.19 16 4.29C18.97 5.17 21 7.9 21 11V17L23 19Z"/>`,
-      tone2: `<circle class="tone-2" cx="12" cy="4" r="2"/><path class="tone-2" d="M7 11C7 14.39 7.74 16.17 8.86 17H17.14C18.26 16.17 19 14.39 19 11C19 8.79 17.21 7 15 7H11C8.79 7 7 8.79 7 11Z"/>`,
+      tone1: `<path class="tone-1" fill-rule="evenodd" clip-rule="evenodd" d="M4.00073 12.6084V12.4113C4.02907 11.8282 4.21229 11.2632 4.53149 10.7746C5.0628 10.1877 5.4265 9.46847 5.58445 8.69238C5.58445 8.09255 5.58445 7.48415 5.63582 6.88432C5.9012 3.99657 8.70054 2 11.4656 2H11.5341C14.2992 2 17.0986 3.99657 17.3725 6.88432C17.4239 7.48415 17.3725 8.09255 17.4153 8.69238C17.5754 9.47027 17.9387 10.1918 18.4683 10.7832C18.7899 11.2675 18.9734 11.8304 18.999 12.4113V12.5998C19.0181 13.3832 18.7536 14.1471 18.2543 14.7507C17.5944 15.4563 16.6989 15.8953 15.7374 15.9846C12.9179 16.2931 10.0733 16.2931 7.25379 15.9846C6.29336 15.8915 5.3992 15.4531 4.73695 14.7507C4.24529 14.1467 3.98433 13.3873 4.00073 12.6084ZM9.34259 18.9666C9.78313 19.5306 10.4301 19.8956 11.1402 19.9809C11.8503 20.0661 12.5651 19.8645 13.1264 19.4208C13.299 19.2895 13.4544 19.1369 13.5887 18.9666" />`,
+      tone2: `<path class="tone-2" d="M9.34259 18.9666C9.78313 19.5306 10.4301 19.8956 11.1402 19.9809C11.8503 20.0661 12.5651 19.8645 13.1264 19.4208C13.299 19.2895 13.4544 19.1369 13.5887 18.9666M4.00073 12.6084V12.4113C4.02907 11.8282 4.21229 11.2632 4.53149 10.7746C5.0628 10.1877 5.4265 9.46847 5.58445 8.69238C5.58445 8.09255 5.58445 7.48415 5.63582 6.88432C5.9012 3.99657 8.70054 2 11.4656 2H11.5341C14.2992 2 17.0986 3.99657 17.3725 6.88432C17.4239 7.48415 17.3725 8.09255 17.4153 8.69238C17.5754 9.47027 17.9387 10.1918 18.4683 10.7832C18.7899 11.2675 18.9734 11.8304 18.999 12.4113V12.5998C19.0181 13.3832 18.7536 14.1471 18.2543 14.7507C17.5944 15.4563 16.6989 15.8953 15.7374 15.9846C12.9179 16.2931 10.0733 16.2931 7.25379 15.9846C6.29336 15.8915 5.3992 15.4531 4.73695 14.7507C4.24529 14.1467 3.98433 13.3873 4.00073 12.6084Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`,
     },
 
     settings: {
@@ -122,7 +127,6 @@ class ParadiseIconsInline {
     const elements = document.querySelectorAll(
       "[data-icon]:not([data-icon-processed])"
     );
-    console.log(`🔄 Processing ${elements.length} data-icon elements...`);
 
     elements.forEach((element, index) => {
       try {
@@ -144,13 +148,10 @@ class ParadiseIconsInline {
           if (navIcon) {
             // Only replace the nav-icon span content, preserve text
             navIcon.innerHTML = iconHTML;
-            console.log(
-              `✅ Processed nav icon ${index + 1}: ${iconName} (preserved text)`
-            );
           } else {
             // For other elements (like navbar icons), replace entire content
             element.innerHTML = iconHTML;
-            console.log(`✅ Processed icon ${index + 1}: ${iconName}`);
+
           }
 
           element.setAttribute("data-icon-processed", "true");
@@ -162,8 +163,6 @@ class ParadiseIconsInline {
   }
 
   static init() {
-    console.log("🚀 Paradise Icons Inline System initializing...");
-
     // Process existing elements
     this.processDataIconElements();
 
@@ -202,7 +201,6 @@ class ParadiseIconsInline {
       subtree: true,
     });
 
-    console.log("✅ Paradise Icons Inline System initialized");
     return true;
   }
 }
@@ -227,20 +225,17 @@ window.debugIconsInline = {
     const div = document.createElement("div");
     div.innerHTML = ParadiseIconsInline.createIcon(name, { size: "lg" });
     document.body.appendChild(div);
-    console.log(`🧪 Added test icon: ${name}`);
   },
   process: () => {
     // Remove all processed markers first
     document.querySelectorAll("[data-icon-processed]").forEach((el) => {
       el.removeAttribute("data-icon-processed");
-      // Clear existing icons in nav-icon spans
       const navIcon = el.querySelector(".nav-icon");
       if (navIcon) {
         navIcon.innerHTML = "";
       }
     });
     ParadiseIconsInline.processDataIconElements();
-    console.log("🔄 Force processed all icons");
   },
   check: () => {
     const elements = document.querySelectorAll("[data-icon]");
@@ -250,6 +245,5 @@ window.debugIconsInline = {
   },
 };
 
-console.log("🛠️ Debug tools: window.debugIconsInline");
 
 export default ParadiseIconsInline;
