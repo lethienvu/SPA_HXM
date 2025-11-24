@@ -91,6 +91,16 @@
     --blur-xl: blur(60px);
 
     /* ==========================================================================
+       ICON SYSTEM COLORS - Paradise HR Duotone
+       ========================================================================== */
+    --icon-primary: var(--brand-secondary);
+    /* #004C39 - main foreground */
+    --icon-accent-light: var(--brand-primary);
+    /* #71C11D - light background */
+    --icon-secondary: var(--brand-primary-dark);
+    /* #5AA10F - stroke if needed */
+
+    /* ==========================================================================
        5. TYPOGRAPHY SYSTEM
        ========================================================================== */
     /* Font Families */
@@ -1708,6 +1718,7 @@ body {
         scroll-behavior: auto !important;
     }
 }
+
 /* ==========================================================================
    ICON SHOWCASE PAGE STYLES
    ========================================================================== */
@@ -1999,20 +2010,87 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* ==========================================================================
+   PARADISE ICONS INLINE SYSTEM
+   ========================================================================== */
+
+/* Base icon styles */
+.paradise-icon {
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Icon sizes */
+.paradise-icon--xs {
+    width: 16px;
+    height: 16px;
+}
+
+.paradise-icon--sm {
+    width: 20px;
+    height: 20px;
+}
+
+.paradise-icon--md {
+    width: 24px;
+    height: 24px;
+}
+
+.paradise-icon--lg {
+    width: 32px;
+    height: 32px;
+}
+
+.paradise-icon--xl {
+    width: 48px;
+    height: 48px;
+}
+
+/* Interactive icons */
+.paradise-icon--interactive {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.paradise-icon--interactive:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Fallback icons */
+.paradise-icon--fallback {
+    opacity: 0.5;
+}
+
+/* Navigation icon containers */
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    min-width: 24px;
+}
+
+.nav-icon .paradise-icon {
+    display: block;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .icon-showcase-page {
         padding: 1rem;
     }
-    
+
     .icon-section {
         padding: 1.5rem;
     }
-    
+
     .color-palette {
         grid-template-columns: 1fr;
     }
-    
+
     .size-demo,
     .container-demo,
     .badge-demo,

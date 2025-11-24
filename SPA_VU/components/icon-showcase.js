@@ -3,12 +3,52 @@
  * Trang demo hệ thống Paradise Icons
  */
 
+import { Component } from "../app.js";
+
+// Helper to wait for UI.icon to be ready
+function ensureUIIconReady() {
+  return new Promise((resolve) => {
+    // Check if UI.icon is already available
+    if (
+      window.UI &&
+      window.UI.icon &&
+      typeof window.UI.icon.list === "function"
+    ) {
+      resolve();
+      return;
+    }
+
+    // Wait for it to be available
+    let attempts = 0;
+    const checkInterval = setInterval(() => {
+      attempts++;
+      if (
+        window.UI &&
+        window.UI.icon &&
+        typeof window.UI.icon.list === "function"
+      ) {
+        clearInterval(checkInterval);
+        resolve();
+      }
+      // Timeout after 5 seconds
+      if (attempts > 50) {
+        clearInterval(checkInterval);
+        console.warn("UI.icon not ready after timeout, proceeding anyway");
+        resolve();
+      }
+    }, 100);
+  });
+}
+
 class IconShowcasePage extends Component {
   constructor() {
     super("icon-showcase");
   }
 
   async render() {
+    // Ensure UI.icon is ready before rendering
+    await ensureUIIconReady();
+
     return `
             <div class="icon-showcase-page">
                 <!-- Page Header -->
@@ -384,7 +424,4 @@ document.body.appendChild(icon);</code></pre>
   }
 }
 
-// Export component
-if (typeof window !== "undefined") {
-  window.IconShowcasePage = IconShowcasePage;
-}
+export default IconShowcasePage;

@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Paradise HR - Human Experience Management</title>
     <link rel="stylesheet" href="./styles.css" />
-    <!-- Paradise Icon System -->
-    <link rel="stylesheet" href="./assets/paradise-icons.css" />
+    <!-- Paradise Icons are now inline - no external CSS needed -->
 </head>
 
 <body>
@@ -30,10 +29,10 @@
                 <!-- Right Icons -->
                 <div class="navbar-icons ms-auto">
                     <div class="d-flex align-items-center">
-                        <!-- Icons sẽ được inject tự động -->
-                        <a class="nav-link" href="#"></a>
-                        <a class="nav-link" href="#"></a>
-                        <a class="nav-link" href="#"></a>
+                        <!-- Test icons -->
+                        <a class="nav-link" href="#" data-icon="notification" data-icon-size="lg"></a>
+                        <a class="nav-link" href="#" data-icon="settings" data-icon-size="lg"></a>
+                        <a class="nav-link" href="#" data-icon="user" data-icon-size="lg"></a>
                     </div>
                 </div>
             </div>
@@ -105,19 +104,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/employees" data-link data-tooltip="Employees" data-icon="users">
+                    <a class="nav-link" href="/employees" data-link data-tooltip="Employees" data-icon="userEdit">
                         <span class="nav-icon"></span>
-                        <span>Employees</span>
+                        <span>Hồ sơ và hợp đồng</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/requests" data-link data-tooltip="Create a request" data-icon="document">
+                    <a class="nav-link" href="/requests" data-link data-tooltip="Create a request" data-icon="addItem">
                         <span class="nav-icon"></span>
-                        <span>Create a request</span>
+                        <span>Đơn từ</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/attendance" data-link data-tooltip="Attendance" data-icon="calendar">
+                    <a class="nav-link" href="/attendance" data-link data-tooltip="Attendance" data-icon="calendar1">
                         <span class="nav-icon"></span>
                         <span>Attendance</span>
                     </a>
@@ -312,9 +311,7 @@
     <script src="./components/alert.js"></script>
     <script src="./components/ui-components.js"></script>
 
-    <!-- Paradise Icon System - Load BEFORE icons.js -->
-    <script src="./components/paradise-icons.js"></script>
-    <script src="./components/icons.js"></script>
+    <script type="module" src="./components/paradise-icons-inline.js"></script>
 
     <!-- SPA Framework -->
     <script type="module" src="./app.js"></script>

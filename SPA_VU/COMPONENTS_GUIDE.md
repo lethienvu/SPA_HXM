@@ -7,11 +7,6 @@
 ### 1. Thêm vào HTML
 
 ```html
-<!-- Bootstrap Icons (required) -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-/>
 
 <!-- CSS Framework -->
 <link rel="stylesheet" href="./styles.css" />

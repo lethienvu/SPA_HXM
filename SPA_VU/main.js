@@ -1,6 +1,8 @@
-// Kiểm tra file này và sửa theo mẫu dưới đây
+// Paradise HR SPA Main Application
 
 import { Component, Router } from "./app.js";
+import IconShowcasePage from "./components/icon-showcase.js";
+import "./components/paradise-icons-inline.js";
 
 // 1. Tạo các component classes
 class HomePage extends Component {
@@ -131,61 +133,6 @@ class ComponentTestingPage extends Component {
   }
 }
 
-class IconShowcasePage extends Component {
-  constructor(props) {
-    super(props);
-    this.iconShowcase = null;
-  }
-
-  async render() {
-    // Load icon showcase script if not already loaded
-    if (typeof window.IconShowcasePage === "undefined") {
-      try {
-        await this.loadScript("./components/icon-showcase.js");
-      } catch (error) {
-        console.error("Failed to load icon showcase script:", error);
-        return `
-          <div class="container-fluid p-4">
-            <div class="alert alert-danger">
-              <h4>Error Loading Icon Showcase</h4>
-              <p>Failed to load the icon showcase module. Please refresh the page.</p>
-            </div>
-          </div>
-        `;
-      }
-    }
-
-    // Create instance using the exported class
-    this.iconShowcase = new window.IconShowcasePage();
-    return await this.iconShowcase.render();
-  }
-
-  loadScript(src) {
-    return new Promise((resolve, reject) => {
-      if (document.querySelector(`script[src="${src}"]`)) {
-        resolve();
-        return;
-      }
-
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = resolve;
-      script.onerror = reject;
-      document.head.appendChild(script);
-    });
-  }
-
-  async onMount() {
-    if (this.iconShowcase && this.iconShowcase.afterRender) {
-      await this.iconShowcase.afterRender();
-    }
-  }
-
-  onUnmount() {
-    this.iconShowcase = null;
-  }
-}
-
 class NotFoundPage extends Component {
   render() {
     return `
@@ -232,6 +179,11 @@ const routes = [
     component: IconShowcasePage,
     title: "Icon Showcase - Paradise HR",
   },
+  {
+    path: "/duotone-showcase",
+    component: () => import("./components/duotone-showcase.js"),
+    title: "Duotone Icons - Paradise HR",
+  },
   { path: "*", component: NotFoundPage, title: "Page Not Found - Paradise HR" },
 ];
 
@@ -239,7 +191,13 @@ const routes = [
 const router = new Router(routes);
 
 // 4. Khởi động app
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  // Initialize Paradise Icons Inline first
+  if (window.ParadiseIconsInline) {
+    console.log("🚀 Initializing Paradise Icons Inline from main.js...");
+    window.ParadiseIconsInline.init();
+  }
+
   router.start();
 });
 
