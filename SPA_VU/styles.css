@@ -1,164 +1,195 @@
 /* ==========================================================================
-   PARADISE HR - DESIGN SYSTEM
+   PARADISE HR - APPLE DESIGN SYSTEM 3.0
    BY LE THIEN VU - HUMAN EXPERIENCE MANAGEMENT
+   Flat Design 3.0 | Liquid Glass | Apple Aesthetics
    ========================================================================== */
 
 :root {
     /* ==========================================================================
-       1. BRAND COLORS - Primary Brand Identity
+       1. BRAND COLORS - Primary Brand Identity (Preserved)
        ========================================================================== */
     --brand-primary: #73c41d;
     --brand-primary-light: #8ED640;
     --brand-primary-dark: #5AA10F;
     --brand-primary-darker: #4A8A0C;
     --brand-primary-hex: 115, 196, 29;
+    --brand-primary-rgb: rgba(115, 196, 29, 1);
 
     --brand-secondary: #004C39;
     --brand-secondary-light: #0D6B52;
     --brand-secondary-dark: #003329;
+    --brand-secondary-rgb: rgba(0, 76, 57, 1);
 
     --brand-accent: #FF8A00;
     --brand-accent-light: #FFA433;
     --brand-accent-dark: #E67700;
+    --brand-accent-rgb: rgba(255, 138, 0, 1);
 
     /* ==========================================================================
-       2. SEMANTIC COLORS - System Feedback
+       2. APPLE SYSTEM COLORS - iOS/macOS Inspired
        ========================================================================== */
-    --color-success: #10B981;
-    --color-success-light: #34D399;
-    --color-success-dark: #059669;
-    --color-success-bg: rgba(16, 185, 129, 0.1);
+    /* System Blues */
+    --system-blue: #007AFF;
+    --system-blue-light: #5AC8FA;
+    --system-blue-dark: #0051D5;
 
-    --color-warning: #F59E0B;
-    --color-warning-light: #FBBF24;
-    --color-warning-dark: #D97706;
-    --color-warning-bg: rgba(245, 158, 11, 0.1);
+    /* System Greens */
+    --system-green: #30D158;
+    --system-green-light: #63E6E2;
+    --system-green-dark: #248A3D;
 
-    --color-error: #EF4444;
-    --color-error-light: #F87171;
-    --color-error-dark: #DC2626;
-    --color-error-bg: rgba(239, 68, 68, 0.1);
+    /* System Reds */
+    --system-red: #FF3B30;
+    --system-red-light: #FF6961;
+    --system-red-dark: #D70015;
 
-    --color-info: #3B82F6;
-    --color-info-light: #60A5FA;
-    --color-info-dark: #2563EB;
-    --color-info-bg: rgba(59, 130, 246, 0.1);
+    /* System Oranges */
+    --system-orange: #FF9500;
+    --system-orange-light: #FFCC02;
+    --system-orange-dark: #FF8C00;
+
+    /* System Purples */
+    --system-purple: #AF52DE;
+    --system-purple-light: #BF5AF2;
+    --system-purple-dark: #8E44AD;
 
     /* ==========================================================================
-       3. NEUTRAL COLORS - Text & Backgrounds
+       3. SEMANTIC COLORS - Enhanced Apple Style
        ========================================================================== */
+    --color-success: var(--system-green);
+    --color-success-light: var(--system-green-light);
+    --color-success-dark: var(--system-green-dark);
+    --color-success-bg: rgba(48, 209, 88, 0.12);
+
+    --color-warning: var(--system-orange);
+    --color-warning-light: var(--system-orange-light);
+    --color-warning-dark: var(--system-orange-dark);
+    --color-warning-bg: rgba(255, 149, 0, 0.12);
+
+    --color-error: var(--system-red);
+    --color-error-light: var(--system-red-light);
+    --color-error-dark: var(--system-red-dark);
+    --color-error-bg: rgba(255, 59, 48, 0.12);
+
+    --color-info: var(--system-blue);
+    --color-info-light: var(--system-blue-light);
+    --color-info-dark: var(--system-blue-dark);
+    --color-info-bg: rgba(115, 196, 29, 0.12);
+
+    /* ==========================================================================
+       4. APPLE NEUTRAL SYSTEM - Dynamic Colors
+       ========================================================================== */
+    --neutral-0: #FFFFFF;
     --neutral-50: #FAFAFA;
-    --neutral-100: #F5F5F5;
-    --neutral-200: #E5E5E5;
-    --neutral-300: #D4D4D4;
-    --neutral-400: #A3A3A3;
-    --neutral-500: #737373;
-    --neutral-600: #525252;
-    --neutral-700: #404040;
-    --neutral-800: #262626;
-    --neutral-900: #171717;
+    --neutral-100: #F2F2F7;
+    --neutral-200: #E5E5EA;
+    --neutral-300: #D1D1D6;
+    --neutral-400: #C7C7CC;
+    --neutral-500: #AEAEB2;
+    --neutral-600: #8E8E93;
+    --neutral-700: #636366;
+    --neutral-800: #48484A;
+    --neutral-900: #1C1C1E;
 
-    /* Text Colors */
+    /* Apple Text Colors */
     --text-primary: var(--neutral-900);
     --text-secondary: var(--neutral-600);
-    --text-muted: var(--neutral-500);
-    --text-disabled: var(--neutral-400);
-    --text-inverse: #FFFFFF;
+    --text-tertiary: var(--neutral-500);
+    --text-quaternary: var(--neutral-400);
+    --text-inverse: var(--neutral-0);
+    --text-link: var(--system-blue);
 
-    /* Background Colors */
-    --bg-primary: #FFFFFF;
+    /* Apple Background Colors */
+    --bg-primary: var(--neutral-0);
     --bg-secondary: var(--neutral-50);
     --bg-tertiary: var(--neutral-100);
-    --bg-elevated: #FFFFFF;
-    --bg-overlay: rgba(0, 0, 0, 0.5);
+    --bg-grouped: var(--neutral-100);
+    --bg-elevated: var(--neutral-0);
+    --bg-overlay: rgba(28, 28, 30, 0.4);
 
     /* ==========================================================================
-       4. GLASSMORPHISM SYSTEM
+       5. LIQUID GLASS SYSTEM - Apple's Glassmorphism Evolution
        ========================================================================== */
-    /* Glass Backgrounds */
-    --glass-primary: rgba(255, 255, 255, 0.25);
-    --glass-secondary: rgba(255, 255, 255, 0.15);
-    --glass-tertiary: rgba(255, 255, 255, 0.08);
+    /* Liquid Glass Backgrounds - Multi-layer approach */
+    --glass-ultra-thin: rgba(255, 255, 255, 0.05);
+    --glass-thin: rgba(255, 255, 255, 0.08);
+    --glass-regular: rgba(255, 255, 255, 0.12);
+    --glass-thick: rgba(255, 255, 255, 0.18);
+    --glass-ultra-thick: rgba(255, 255, 255, 0.25);
 
-    /* Glass Borders */
-    --glass-border-light: rgba(255, 255, 255, 0.18);
-    --glass-border-medium: rgba(255, 255, 255, 0.25);
-    --glass-border-strong: rgba(255, 255, 255, 0.4);
+    /* Glass Tinted Backgrounds */
+    --glass-tinted-blue: rgba(0, 122, 255, 0.08);
+    --glass-tinted-green: rgba(48, 209, 88, 0.08);
+    --glass-tinted-red: rgba(255, 59, 48, 0.08);
+    --glass-tinted-brand: rgba(115, 196, 29, 0.08);
 
-    /* Backdrop Blur Levels */
-    --blur-sm: blur(10px);
-    --blur-md: blur(20px);
-    --blur-lg: blur(40px);
-    --blur-xl: blur(60px);
+    /* Liquid Glass Borders - Subtle highlights */
+    --glass-border-ultra-light: rgba(255, 255, 255, 0.08);
+    --glass-border-light: rgba(255, 255, 255, 0.12);
+    --glass-border-medium: rgba(255, 255, 255, 0.18);
+    --glass-border-strong: rgba(255, 255, 255, 0.25);
+    --glass-border-ultra-strong: rgba(255, 255, 255, 0.35);
+
+    /* Apple Backdrop Blur System */
+    --blur-ultra-light: blur(8px);
+    --blur-light: blur(12px);
+    --blur-regular: blur(20px);
+    --blur-strong: blur(32px);
+    --blur-ultra-strong: blur(48px);
 
     /* ==========================================================================
-       ICON SYSTEM COLORS - Paradise HR Duotone
+       6. TYPOGRAPHY SYSTEM - Apple San Francisco
        ========================================================================== */
-    --icon-primary: var(--brand-secondary);
-    /* #004C39 - main foreground */
-    --icon-accent-light: var(--brand-primary);
-    /* #71C11D - light background */
-    --icon-secondary: var(--brand-primary-dark);
-    /* #5AA10F - stroke if needed */
+    /* Apple Font Stack */
+    --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-system-rounded: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'SF Pro Display', sans-serif;
+    --font-system-mono: 'SF Mono', ui-monospace, Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
 
-    /* ==========================================================================
-       5. TYPOGRAPHY SYSTEM
-       ========================================================================== */
-    /* Font Families */
-    --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-    --font-secondary: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
-    --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+    /* Apple Typography Scale */
+    --text-caption2: 0.6875rem;
+    /* 11px - Ultra small */
+    --text-caption1: 0.75rem;
+    /* 12px - Small captions */
+    --text-footnote: 0.8125rem;
+    /* 13px - Footnotes */
+    --text-subheadline: 0.9375rem;
+    /* 15px - Secondary text */
+    --text-callout: 1rem;
+    /* 16px - Body text */
+    --text-body: 1.0625rem;
+    /* 17px - Primary body */
+    --text-headline: 1.0625rem;
+    /* 17px - Headlines */
+    --text-title3: 1.25rem;
+    /* 20px - Small titles */
+    --text-title2: 1.375rem;
+    /* 22px - Medium titles */
+    --text-title1: 1.75rem;
+    /* 28px - Large titles */
+    --text-large-title: 2.125rem;
+    /* 34px - Extra large titles */
 
-    /* Font Sizes */
-    --text-xs: 0.75rem;
-    /* 12px */
-    --text-sm: 0.875rem;
-    /* 14px */
-    --text-base: 1rem;
-    /* 16px */
-    --text-lg: 1.125rem;
-    /* 18px */
-    --text-xl: 1.25rem;
-    /* 20px */
-    --text-2xl: 1.5rem;
-    /* 24px */
-    --text-3xl: 1.875rem;
-    /* 30px */
-    --text-4xl: 2.25rem;
-    /* 36px */
-    --text-5xl: 3rem;
-    /* 48px */
-    --text-6xl: 3.75rem;
-    /* 60px */
+    /* Apple Line Heights */
+    --leading-ultra-tight: 1.1;
+    --leading-tight: 1.2;
+    --leading-snug: 1.3;
+    --leading-normal: 1.4;
+    --leading-relaxed: 1.5;
+    --leading-loose: 1.6;
 
-    /* Line Heights */
-    --leading-none: 1;
-    --leading-tight: 1.25;
-    --leading-snug: 1.375;
-    --leading-normal: 1.5;
-    --leading-relaxed: 1.625;
-    --leading-loose: 2;
-
-    /* Font Weights */
-    --font-thin: 100;
+    /* Apple Font Weights */
+    --font-ultralight: 100;
+    --font-thin: 200;
     --font-light: 300;
-    --font-normal: 400;
+    --font-regular: 400;
     --font-medium: 500;
     --font-semibold: 600;
     --font-bold: 700;
-    --font-extrabold: 800;
+    --font-heavy: 800;
     --font-black: 900;
 
-    /* Letter Spacing */
-    --tracking-tighter: -0.05em;
-    --tracking-tight: -0.025em;
-    --tracking-normal: 0em;
-    --tracking-wide: 0.025em;
-    --tracking-wider: 0.05em;
-    --tracking-widest: 0.1em;
-
     /* ==========================================================================
-       6. SPACING SYSTEM (8px Grid)
+       7. APPLE SPACING SYSTEM - 4px Grid
        ========================================================================== */
     --space-0: 0;
     --space-1: 0.25rem;
@@ -173,26 +204,31 @@
     /* 20px */
     --space-6: 1.5rem;
     /* 24px */
+    --space-7: 1.75rem;
+    /* 28px */
     --space-8: 2rem;
     /* 32px */
     --space-10: 2.5rem;
     /* 40px */
     --space-12: 3rem;
     /* 48px */
-    --space-15: 3.75rem;
-    /* 60px */
+    --space-14: 3.5rem;
+    /* 56px */
     --space-16: 4rem;
     /* 64px */
     --space-20: 5rem;
     /* 80px */
     --space-24: 6rem;
     /* 96px */
+    --space-28: 7rem;
+    /* 112px */
     --space-32: 8rem;
     /* 128px */
 
     /* ==========================================================================
-       7. BORDER RADIUS SYSTEM
+       8. STRONG BORDER RADIUS SYSTEM - Apple's Bold Approach
        ========================================================================== */
+    /* Strong Radius Scale */
     --radius-none: 0;
     --radius-xs: 0.25rem;
     /* 4px */
@@ -201,66 +237,108 @@
     --radius-md: 0.75rem;
     /* 12px */
     --radius-lg: 1rem;
-    /* 16px */
+    /* 16px - Standard strong */
     --radius-xl: 1.25rem;
     /* 20px */
     --radius-2xl: 1.5rem;
     /* 24px */
     --radius-3xl: 2rem;
-    /* 32px */
+    /* 32px - Ultra strong */
+    --radius-4xl: 2.5rem;
+    /* 40px */
     --radius-full: 9999px;
 
-    /* Component Specific Radius */
-    --radius-button-sm: var(--radius-sm);
-    --radius-button-md: var(--radius-md);
-    --radius-button-lg: var(--radius-lg);
-    --radius-card: var(--radius-xl);
-    --radius-modal: var(--radius-2xl);
-    --radius-input: var(--radius-md);
+    /* Component Specific Strong Radius */
+    --radius-button-sm: var(--radius-lg);
+    /* 16px strong */
+    --radius-button-md: var(--radius-xl);
+    /* 20px strong */
+    --radius-button-lg: var(--radius-2xl);
+    /* 24px strong */
+    --radius-card: var(--radius-2xl);
+    /* 24px strong */
+    --radius-modal: var(--radius-3xl);
+    /* 32px ultra strong */
+    --radius-sidebar: var(--radius-3xl);
+    /* 32px ultra strong */
+    --radius-input: var(--radius-lg);
+    /* 16px strong */
 
     /* ==========================================================================
-       8. SHADOW SYSTEM
+       9. APPLE SHADOW SYSTEM - Depth & Elevation
        ========================================================================== */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
-    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+    /* Apple-style Shadows with proper layering */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.06);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 24px 48px rgba(0, 0, 0, 0.15), 0 16px 32px rgba(0, 0, 0, 0.12);
 
-    /* Glass Shadows */
-    --shadow-glass-sm: 0 4px 20px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-    --shadow-glass-md: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-    --shadow-glass-lg: 0 16px 64px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    /* Liquid Glass Shadows - Enhanced for glassmorphism */
+    --shadow-glass-sm:
+        0 4px 20px rgba(0, 0, 0, 0.05),
+        0 1px 2px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    --shadow-glass-md:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 4px 8px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    --shadow-glass-lg:
+        0 16px 64px rgba(0, 0, 0, 0.04),
+        0 8px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
     /* ==========================================================================
-       9. ANIMATION SYSTEM
+       10. APPLE ANIMATION SYSTEM - Perfect Timing & Easing
        ========================================================================== */
-    /* Duration */
-    --duration-fast: 150ms;
-    --duration-normal: 300ms;
-    --duration-slow: 500ms;
-    --duration-slower: 700ms;
+    /* Apple Durations */
+    --duration-instant: 0ms;
+    --duration-immediate: 100ms;
+    --duration-quick: 200ms;
+    --duration-snappy: 300ms;
+    --duration-moderate: 400ms;
+    --duration-smooth: 500ms;
+    --duration-slow: 700ms;
 
-    /* Easing Functions */
-    --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
-    --ease-in: cubic-bezier(0.4, 0.0, 1, 1);
-    --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
+    /* Apple Easing Curves - Authentic iOS/macOS feel */
+    --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+    /* Standard */
+    --ease-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);
+    /* Ease out */
+    --ease-accelerate: cubic-bezier(0.4, 0.0, 1, 1);
+    /* Ease in */
+    --ease-sharp: cubic-bezier(0.4, 0.0, 0.6, 1);
+    /* Sharp */
+    --ease-apple: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Apple signature */
     --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --ease-apple: cubic-bezier(0.2, 0.9, 0.3, 1);
+    /* Playful bounce */
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Spring effect */
 
     /* ==========================================================================
-       10. BREAKPOINTS
+       11. RESPONSIVE BREAKPOINTS - Apple Device Inspired
        ========================================================================== */
-    --breakpoint-sm: 640px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 1024px;
-    --breakpoint-xl: 1280px;
-    --breakpoint-2xl: 1536px;
+    --breakpoint-mobile: 390px;
+    /* iPhone 12 Pro */
+    --breakpoint-tablet: 834px;
+    /* iPad Air */
+    --breakpoint-desktop: 1024px;
+    /* iPad Pro Landscape / Small Desktop */
+    --breakpoint-wide: 1440px;
+    /* MacBook Pro */
+    --breakpoint-ultra-wide: 1728px;
+    /* Studio Display */
 
     /* ==========================================================================
-       11. Z-INDEX SCALE
+       12. Z-INDEX SYSTEM - Proper Layering
        ========================================================================== */
+    --z-hide: -1;
+    --z-base: 0;
+    --z-docked: 10;
     --z-dropdown: 1000;
     --z-sticky: 1020;
     --z-fixed: 1030;
@@ -269,22 +347,141 @@
     --z-popover: 1060;
     --z-tooltip: 1070;
     --z-toast: 1080;
+    --z-overlay: 1090;
+
+    /* ==========================================================================
+       ICON SYSTEM COLORS - Paradise HR Duotone (Enhanced)
+       ========================================================================== */
+    --icon-primary: var(--brand-secondary);
+    --icon-accent-light: var(--brand-primary);
+    --icon-secondary: var(--brand-primary-dark);
+
+    /* ==========================================================================
+       NAVBAR AVATAR SYSTEM
+       ========================================================================== */
+    --navbar-avatar-size: 2.5rem;
+    /* 40px */
+    --navbar-avatar-border-color: var(--brand-primary);
+    --navbar-avatar-hover-border-color: var(--brand-primary);
+    --navbar-avatar-background: var(--bg-secondary);
+    --navbar-avatar-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* ==========================================================================
-   GLOBAL STYLES
+   APPLE DESIGN SYSTEM RESET - Enhanced for Perfect Rendering
    ========================================================================== */
-/* Style cho duotone (external CSS) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    line-height: var(--leading-normal);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-system);
+    font-size: var(--text-body);
+    line-height: var(--leading-normal);
+    font-weight: var(--font-regular);
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Enhanced focus management */
+:focus-visible {
+    outline: 2px solid var(--system-blue);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* Smooth scrolling for all elements */
+* {
+    scroll-behavior: smooth;
+}
+
+/* Better image rendering */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Enhanced button reset */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* Enhanced input reset */
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Better list styling */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Enhanced link styling */
+a {
+    color: var(--text-link);
+    text-decoration: none;
+    transition: color var(--duration-quick) var(--ease-standard);
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINER - Apple-style Spacing
+   ========================================================================== */
+.app-container {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINER - Apple-style Spacing
+   ========================================================================== */
+.app-container {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
+/* ==========================================================================
+   ICON SYSTEM - Paradise HR Duotone Support
+   ========================================================================== */
+
 .icon--duotone .tone-1 {
     fill: var(--icon-accent-light);
 }
 
-/* lower tint */
 .icon--duotone .tone-2 {
     fill: var(--icon-primary);
 }
 
-/* main foreground */
 .icon--duotone {
     display: inline-block;
     vertical-align: middle;
@@ -296,114 +493,114 @@
     fill: none;
 }
 
-/* Thêm stroke nếu cần */
 .icon--duotone .tone-2-stroke {
     stroke: var(--icon-primary);
     stroke-width: 2px;
     fill: none;
 }
 
-
 /* ==========================================================================
-   1. RESET & BASE STYLES
-   ========================================================================== */
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 16px;
-    line-height: 1.5;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-primary);
-    font-size: var(--text-base);
-    line-height: var(--leading-normal);
-    font-weight: var(--font-normal);
-    color: var(--text-primary);
-    background-color: var(--bg-secondary);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* ==========================================================================
-   2. LAYOUT CONTAINER
-   ========================================================================== */
-.app-container {
-    position: relative;
-    min-height: 100vh;
-}
-
-/* ==========================================================================
-   3. TOP NAVIGATION BAR
+   FLOATING GLASS NAVBAR - Apple Style
    ========================================================================== */
 .navbar {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: var(--space-6);
+    right: var(--space-6);
+    left: calc(300px + var(--space-12));
+    height: var(--space-14);
+    z-index: var(--z-sticky);
+
+    /* Liquid Glass Effect */
+    background: var(--glass-thick);
+    backdrop-filter: var(--blur-strong);
+    -webkit-backdrop-filter: var(--blur-strong);
+    border-radius: var(--radius-3xl);
+
+    /* Layout */
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: var(--space-4);
-    flex-wrap: nowrap;
-    height: var(--space-15);
-    width: calc(100% - 300px);
     padding: 0 var(--space-6);
-    padding-top: var(--space-6);
-    background: transparent;
-    z-index: var(--z-sticky);
-    transition: all var(--duration-normal) var(--ease-in-out);
+    gap: var(--space-4);
+
+    /* Smooth transitions */
+    transition: all var(--duration-smooth) var(--ease-apple);
+
+    /* Hover effects */
+    &:hover {
+        background: var(--glass-ultra-thick);
+        border-color: var(--glass-border-strong);
+        transform: translateY(-1px);
+    }
 }
 
+/* Collapsed sidebar adjustment */
 .sidebar-collapsed .navbar {
-    width: calc(100% - 120px);
+    left: calc(80px + var(--space-12));
 }
 
-.navbar .container-fluid {
-    display: none;
-}
-
+/* Navbar brand */
 .navbar-brand {
-    color: var(--text-primary) !important;
+    color: var(--text-primary);
     font-weight: var(--font-semibold);
-    font-size: var(--text-xl);
+    font-size: var(--text-title3);
+    font-family: var(--font-system-rounded);
+    letter-spacing: -0.02em;
+    transition: color var(--duration-quick) var(--ease-standard);
 }
 
+.navbar-brand:hover {
+    color: var(--brand-primary);
+}
+
+/* Navigation links */
 .navbar .nav-link {
-    color: var(--text-secondary) !important;
-    padding: var(--space-2) var(--space-3) !important;
-    margin: 0 !important;
-    border-radius: var(--radius-md);
-    transition: all var(--duration-fast) var(--ease-out);
+    color: var(--text-secondary);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-lg);
+    transition: all var(--duration-quick) var(--ease-standard);
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: var(--space-10);
     height: var(--space-10);
-    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+
+    /* Liquid interaction */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--glass-tinted-brand);
+        border-radius: inherit;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all var(--duration-quick) var(--ease-apple);
+    }
 }
 
 .navbar .nav-link:hover {
-    color: var(--brand-primary) !important;
-    background-color: var(--bg-secondary);
+    color: var(--brand-primary);
+    transform: translateY(-1px);
+
+    &::before {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .navbar .nav-link:active {
-    color: var(--brand-primary) !important;
-    background-color: var(--glass-secondary);
+    transform: translateY(0);
+
+    &::before {
+        background: var(--glass-tinted-blue);
+    }
 }
 
-/* Navbar Search Bar */
+/* Apple-style Search Bar */
 .navbar-search {
     flex: 1 1 auto;
-    max-width: 420px;
+    max-width: 400px;
     height: var(--space-10);
     position: relative;
     margin-left: auto;
@@ -412,26 +609,28 @@ body {
 .navbar-search .form-control {
     width: 100%;
     height: 100%;
-    background-color: var(--bg-secondary);
+    background: var(--glass-regular);
     border: 1px solid var(--neutral-200);
     color: var(--text-primary);
     border-radius: var(--radius-full);
-    padding: var(--space-2) var(--space-4) var(--space-2) var(--space-10);
-    font-size: var(--text-sm);
-    font-family: var(--font-secondary);
-    transition: all var(--duration-fast) var(--ease-out);
-}
+    padding: 0 var(--space-4) 0 var(--space-10);
+    font-size: var(--text-footnote);
+    font-family: var(--font-system);
+    font-weight: var(--font-regular);
+    transition: all var(--duration-quick) var(--ease-apple);
 
-.navbar-search .form-control::placeholder {
-    color: var(--text-muted);
-}
+    /* Apple-style placeholder */
+    &::placeholder {
+        color: var(--text-tertiary);
+        font-weight: var(--font-regular);
+    }
 
-.navbar-search .form-control:focus {
-    background-color: var(--bg-primary);
-    border-color: var(--brand-primary);
-    box-shadow: 0 0 0 2px var(--color-info-bg);
-    color: var(--text-primary);
-    outline: none;
+    /* Enhanced focus state */
+    &:focus {
+        outline: none;
+        background: var(--glass-thick);
+        transform: translateY(-1px);
+    }
 }
 
 .navbar-search .search-icon {
@@ -439,10 +638,15 @@ body {
     left: var(--space-3);
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-muted);
-    font-size: var(--text-base);
+    color: var(--text-tertiary);
+    font-size: var(--text-footnote);
     z-index: 10;
     pointer-events: none;
+    transition: color var(--duration-quick) var(--ease-standard);
+}
+
+.navbar-search .form-control:focus~.search-icon {
+    color: var(--brand-primary);
 }
 
 /* Navbar Right Section */
@@ -474,17 +678,40 @@ body {
 }
 
 .user-avatar-navbar {
-    width: var(--space-8);
-    height: var(--space-8);
+    width: var(--navbar-avatar-size);
+    height: var(--navbar-avatar-size);
     border-radius: var(--radius-full);
-    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-    color: var(--text-inverse);
+    background-color: var(--navbar-avatar-background);
+    border: 2px solid var(--navbar-avatar-border-color);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: var(--font-semibold);
     font-size: var(--text-base);
     flex-shrink: 0;
+    transition: border-color var(--duration-snappy) var(--ease-apple), box-shadow var(--duration-snappy) var(--ease-apple);
+}
+
+.user-avatar-navbar img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radius-full);
+}
+
+.user-avatar-navbar:hover {
+    border-color: var(--navbar-avatar-hover-border-color);
+    box-shadow: var(--navbar-avatar-shadow-hover);
+}
+
+@media (max-width: var(--breakpoint-mobile)) {
+    .user-avatar-navbar {
+        width: calc(var(--navbar-avatar-size) * 0.8);
+        height: calc(var(--navbar-avatar-size) * 0.8);
+    }
 }
 
 /* User Info Container */
@@ -506,7 +733,7 @@ body {
 .user-title-navbar {
     font-weight: var(--font-normal);
     color: var(--text-secondary);
-    font-size: var(--text-xs);
+    font-size: var(--text-footnote);
     white-space: nowrap;
     line-height: var(--leading-tight);
 }
@@ -526,257 +753,588 @@ body {
 }
 
 /* ==========================================================================
-   4. SIDEBAR
+   LIQUID GLASS SIDEBAR - Ultimate Apple Design
    ========================================================================== */
 .sidebar {
     position: fixed;
-    top: var(--space-5);
-    left: var(--space-5);
-    bottom: var(--space-5);
+    top: var(--space-6);
+    left: var(--space-6);
+    bottom: var(--space-6);
     width: 280px;
     z-index: var(--z-fixed);
-    transition: all var(--duration-normal) var(--ease-in-out);
     display: flex;
     flex-direction: column;
 
-    /* Glass morphism effect */
-    background: var(--glass-primary);
-    backdrop-filter: var(--blur-md);
-    -webkit-backdrop-filter: var(--blur-md);
-    border: 1px solid var(--glass-border-light);
-    border-radius: var(--radius-2xl);
+    /* Ultimate Liquid Glass Effect */
+    background:
+        linear-gradient(135deg, var(--glass-ultra-thick) 0%, var(--glass-thick) 100%),
+        radial-gradient(circle at top left, var(--glass-tinted-brand) 0%, transparent 50%);
+    backdrop-filter: var(--blur-ultra-strong);
+    -webkit-backdrop-filter: var(--blur-ultra-strong);
+    border: 1px solid var(--glass-border-medium);
+    border-radius: var(--radius-sidebar);
+    box-shadow: var(--shadow-glass-lg);
 
-    /* Shadow for depth */
-    box-shadow: var(--shadow-glass-md);
-    overflow: hidden;
+    /* Smooth transitions for all states */
+    transition: all var(--duration-smooth) var(--ease-apple);
+
+    /* Multi-layer glass effect */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 1px;
+        background: linear-gradient(135deg, var(--glass-border-ultra-light) 0%, transparent 50%, var(--glass-border-light) 100%);
+        border-radius: calc(var(--radius-sidebar) - 1px);
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+    /* Animated gradient overlay */
+    &::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+
+    /* ==========================================================================
+       NAVBAR AVATAR — .user-avatar-navbar
+       - Uses design tokens from :root (size, colors, shadows)
+       - Responsive, centered content, thin border, subtle hover shadow/border
+       - Works with <img>, <svg>, or initial letters inside a <button> or <div>
+       ========================================================================== */
+    .user-avatar-navbar {
+        /* local overrideable size (falls back to navbar token) */
+        --ua-size: var(--navbar-avatar-size, 2.5rem);
+
+        width: var(--ua-size);
+        height: var(--ua-size);
+
+        display: inline-grid;
+        place-items: center; /* center icon/avatar */
+
+        /* circular avatar */
+        border-radius: var(--radius-full);
+
+        /* subtle base visuals */
+        background: var(--navbar-avatar-background, var(--bg-secondary));
+        border: 1px solid var(--navbar-avatar-border-color, var(--neutral-300));
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+
+        /* accessible, clickable element sizing */
+        min-width: var(--ua-size);
+        min-height: var(--ua-size);
+
+        overflow: hidden;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+
+        /* micro-interaction */
+        transition: transform var(--duration-quick) var(--ease-apple),
+                    box-shadow var(--duration-snappy) var(--ease-apple),
+                    border-color var(--duration-snappy) var(--ease-apple);
+
+        cursor: pointer;
+        vertical-align: middle;
+    }
+
+    .user-avatar-navbar img,
+    .user-avatar-navbar svg,
+    .user-avatar-navbar .initials {
+        width: calc(var(--ua-size) - 6px);
+        height: calc(var(--ua-size) - 6px);
+        border-radius: inherit;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Hover & focus states — thin border color change + gentle shadow */
+    .user-avatar-navbar:hover,
+    .user-avatar-navbar:focus {
+        transform: translateY(-2px);
+        box-shadow: var(--navbar-avatar-shadow-hover, 0 6px 14px rgba(0,0,0,0.12));
+        border-color: var(--navbar-avatar-hover-border-color, var(--brand-primary));
+    }
+
+    .user-avatar-navbar:active {
+        transform: translateY(0) scale(0.98);
+    }
+
+    .user-avatar-navbar:focus-visible {
+        outline: 2px solid rgba(var(--brand-primary-hex, 115,196,29), 0.14);
+        outline-offset: 3px;
+    }
+
+    /* small/compact variants for tighter navbars */
+    .user-avatar-navbar--sm { --ua-size: 1.75rem; }
+    .user-avatar-navbar--md { --ua-size: 2.25rem; }
+    .user-avatar-navbar--lg { --ua-size: 3rem; }
+
+    /* Responsive tweak: reduce avatar on very small viewports */
+    @media (max-width: 480px) {
+        .user-avatar-navbar { --ua-size: 2rem; }
+    }
+
+    /* Example usage (HTML):
+       <button class="user-avatar-navbar" aria-label="Open user menu">
+           <img src="/assets/avatar.jpg" alt="User avatar" />
+       </button>
+
+       or for initials / icon:
+       <div class="user-avatar-navbar user-avatar-navbar--sm">
+           <span class="initials">LV</span>
+       </div>
+    */
+        height: 200%;
+        background: conic-gradient(from 0deg at 50% 50%,
+                transparent 0deg,
+                var(--glass-border-ultra-light) 30deg,
+                transparent 60deg,
+                var(--glass-border-light) 90deg,
+                transparent 120deg);
+        border-radius: inherit;
+        opacity: 0.3;
+        animation: sidebarGradientRotate 20s linear infinite;
+        pointer-events: none;
+    }
 }
 
-.sidebar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg,
-            var(--glass-border-medium) 0%,
-            var(--glass-border-light) 50%,
-            var(--glass-tertiary) 100%);
-    pointer-events: none;
+@keyframes sidebarGradientRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-/* Collapsed state */
+/* Collapsed State - Ultra Smooth */
 .sidebar.collapsed {
     width: 80px;
+
+    /* Enhanced liquid effect when collapsed */
+    background:
+        radial-gradient(circle at center, var(--glass-ultra-thick) 0%, var(--glass-thick) 100%),
+        var(--glass-tinted-brand);
+
+    &::after {
+        animation-duration: 10s;
+        /* Faster rotation when collapsed */
+    }
 }
 
-/* Chỉ ẩn text khi collapsed, giữ lại icons */
+/* Smooth text transitions when collapsed */
 .sidebar.collapsed .sidebar-brand span,
 .sidebar.collapsed .nav-link span,
 .sidebar.collapsed .sidebar-bottom span {
-    opacity: 0;
     pointer-events: none;
     width: 0;
     overflow: hidden;
-    transition: all var(--duration-normal) var(--ease-in-out);
+    transition: all var(--duration-smooth) var(--ease-apple);
 }
 
-.sidebar.collapsed .nav-link span {
-    opacity: 1;
-}
-
-/* Sidebar Header */
+/* Sidebar Header - Apple Style */
 .sidebar-header {
-    padding: 24px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--space-6) var(--space-5);
+    border-bottom: 1px solid var(--glass-border-light);
     position: relative;
     z-index: 2;
     flex-shrink: 0;
+
+    /* Subtle glass effect for header */
+    background: linear-gradient(135deg, var(--glass-border-ultra-light) 0%, transparent 100%);
+    backdrop-filter: var(--blur-light);
+    -webkit-backdrop-filter: var(--blur-light);
 }
 
+/* Apple-style Toggle Button */
 .sidebar-toggle-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    width: 36px;
-    height: 36px;
+    top: var(--space-5);
+    right: var(--space-5);
+    width: var(--space-8);
+    height: var(--space-8);
+
+    /* Apple button design */
+    background: var(--glass-regular);
+    backdrop-filter: var(--blur-regular);
+    -webkit-backdrop-filter: var(--blur-regular);
+    border: 1px solid var(--glass-border-light);
+    border-radius: var(--radius-lg);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #333;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-primary);
     cursor: pointer;
     z-index: 10;
+
+    /* Apple-style transitions */
+    transition: all var(--duration-quick) var(--ease-apple);
+
+    /* Hover effect with haptic-like feedback */
+    &:hover {
+        background: var(--glass-thick);
+        border-color: var(--glass-border-medium);
+        transform: translateY(-1px) scale(1.02);
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 var(--glass-border-ultra-light);
+    }
+
+    /* Active state */
+    &:active {
+        transform: translateY(0) scale(0.98);
+        background: var(--glass-ultra-thick);
+    }
+
+    /* Icon styling */
+    i {
+        font-size: var(--text-callout);
+        transition: transform var(--duration-quick) var(--ease-apple);
+    }
 }
 
-.sidebar-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-}
-
+/* Collapsed position adjustment */
 .sidebar.collapsed .sidebar-toggle-btn {
-    right: 22px;
+    margin: 0 auto;
+
+    i {
+        transform: rotate(180deg);
+    }
 }
 
-/* Sidebar Brand */
+/* Apple-style Sidebar Brand */
 .sidebar-brand {
-    margin-top: 50px;
+    margin-top: var(--space-12);
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: #333;
+    justify-content: flex-start;
+    gap: var(--space-3);
+    color: var(--text-primary);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    transition: all 0.3s ease;
+    font-weight: var(--font-semibold);
+    font-size: var(--text-title3);
+    font-family: var(--font-system-rounded);
     position: relative;
+    padding: 0 var(--space-2);
+
+    /* Apple-style transitions */
+    transition: all var(--duration-smooth) var(--ease-apple);
+
+    /* Subtle interactive effect */
+    &:hover {
+        color: var(--brand-primary);
+        transform: translateY(-1px);
+    }
 }
 
 .sidebar-brand img {
-    height: 40px;
-    border-radius: 8px;
+    height: var(--space-10);
+    width: 100%;
+    border-radius: var(--radius-md);
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: all var(--duration-smooth) var(--ease-apple);
+
+    /* Subtle glow effect on hover */
+    &:hover {
+        filter: drop-shadow(0 4px 8px rgba(115, 196, 29, 0.3));
+        transform: scale(1.02);
+    }
 }
 
-/* Logo thay đổi khi collapsed */
+/* Collapsed brand styling */
 .sidebar.collapsed .sidebar-brand {
     justify-content: center;
+    gap: 0;
+
+    span {
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+    }
 }
 
 .sidebar.collapsed .sidebar-brand img {
+    /* Smaller logo when collapsed */
+    height: var(--space-12);
+    width: var(--space-12);
+    border-radius: var(--radius-lg);
     content: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 500 500' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M117.991 455.538L15.6432 317.104C7.3432 305.875 2.12893 292.653 0.528929 278.765C-1.07583 264.878 0.986021 250.814 6.50983 237.978L74.848 79.9428C80.3669 67.1268 89.1526 55.9967 100.319 47.673C111.486 39.3497 124.643 34.1272 138.462 32.532L309.257 12.5147C323.081 10.931 337.077 13.0173 349.843 18.5636C362.605 24.1104 373.7 32.9234 382.009 44.1215L484.358 182.56C492.657 193.788 497.871 207.008 499.472 220.895C501.075 234.783 499.013 248.847 493.491 261.683L425.152 419.72C419.629 432.531 410.837 443.653 399.67 451.978C388.504 460.295 375.352 465.525 361.538 467.13L190.743 487.144C176.919 488.764 162.914 486.691 150.138 481.140C137.367 475.593 126.281 466.763 117.991 455.538Z' fill='%23004C39'/%3E%3Cpath d='M171.385 284.054C141.616 296.947 114.398 314.059 88.2959 335.905C93.8908 315.806 116.9 292.782 140.088 283.469C150.748 279.188 161.787 275.825 172.73 272.28C183.388 268.828 194.144 265.674 205.674 262.14C205.674 200.409 205.674 138.449 205.674 75.8546C208.815 75.6499 211.187 75.2925 213.547 75.3716C249.667 76.5829 286.01 75.7688 321.85 79.6197C369.364 84.7247 398.311 120.691 398.079 169.087C397.85 216.758 368.15 251.117 320.856 257.178C302.659 259.511 284.214 259.996 265.865 261.019C258.139 261.449 250.367 261.09 241.809 261.09C241.809 314.857 241.809 367.743 241.809 421.386C229.712 421.386 218.392 421.386 206.173 421.386C206.173 372.95 206.173 324.23 206.173 275.512C199.382 292.305 201.144 311.326 189.422 326.764C189.422 318.003 189.422 309.24 189.422 300.478C188.717 300.376 188.011 300.273 187.307 300.172C183.692 315.57 180.076 330.97 176.46 346.368C175.801 346.268 175.141 346.169 174.482 346.07C173.637 336.169 172.792 326.267 171.947 316.368C171.434 316.295 170.921 316.224 170.409 316.151C167.486 331.032 164.564 345.911 161.642 360.792C160.843 360.694 160.044 360.595 159.246 360.498C158.467 354.246 157.689 347.995 156.911 341.744C156.114 341.566 155.317 341.386 154.519 341.208C151.103 352.147 147.687 363.086 144.271 374.024C143.685 373.995 143.1 373.965 142.514 373.935C142.514 366.472 142.514 359.009 142.514 351.544C130.65 368.755 130.005 391.677 111.589 404.931C108.329 377.317 135.92 323.872 172.909 286.188C172.863 284.947 172.124 284.501 171.385 284.054ZM333.689 118.914C304.079 105.545 272.68 111.318 241.796 109.267C241.796 148.821 241.796 187.292 241.796 228.53C266.828 227.047 291.401 226.996 315.553 223.775C340.746 220.417 355.652 203.772 360.871 179.137C365.761 156.064 355.476 133.322 333.689 118.914Z' fill='%23FBFCFC'/%3E%3C/svg%3E");
-    width: 32px;
-    height: 32px;
 }
 
-/* Navigation Menu */
+/* Apple-style Navigation Menu */
 .sidebar-nav {
     list-style: none;
-    padding: 20px 16px;
+    padding: var(--space-6) var(--space-4);
     margin: 0;
     flex: 1;
     position: relative;
     z-index: 2;
     overflow-y: auto;
+
+    /* Custom scrollbar for Apple feel */
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--glass-border-medium);
+        border-radius: var(--radius-full);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--glass-border-strong);
+    }
 }
 
 .sidebar-nav .nav-item {
-    margin-bottom: 8px;
+    margin-bottom: var(--space-1);
+
+    /* Staggered animation on load */
+    animation: navItemSlideIn var(--duration-moderate) var(--ease-apple) both;
+
+    &:nth-child(1) {
+        animation-delay: 0ms;
+    }
+
+    &:nth-child(2) {
+        animation-delay: 50ms;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 100ms;
+    }
+
+    &:nth-child(4) {
+        animation-delay: 150ms;
+    }
+
+    &:nth-child(5) {
+        animation-delay: 200ms;
+    }
+
+    &:nth-child(6) {
+        animation-delay: 250ms;
+    }
+}
+
+@keyframes navItemSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .sidebar-nav .nav-divider {
     border-top: 1px solid var(--glass-border-light);
-    margin: var(--space-4) 0;
+    margin: var(--space-6) var(--space-2);
     padding: 0;
     height: 1px;
+    opacity: 0.6;
 }
 
+/* Apple-style Navigation Links */
 .sidebar-nav .nav-link {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
     color: var(--text-primary);
-    opacity: 0.8;
     text-decoration: none;
-    border-radius: 12px;
-    transition: all var(--duration-normal) var(--ease-in-out);
+    border-radius: var(--radius-xl);
     font-weight: var(--font-medium);
+    font-size: var(--text-callout);
+    font-family: var(--font-system);
     position: relative;
     overflow: hidden;
     white-space: nowrap;
+
+    /* Multi-layer liquid effect */
+    background: transparent;
+    transition: all var(--duration-quick) var(--ease-apple);
+
+    /* Liquid glass hover backdrop */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--glass-tinted-brand);
+        border-radius: inherit;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all var(--duration-quick) var(--ease-spring);
+    }
+
+    /* Active indicator */
+    &::after {
+        content: '';
+        position: absolute;
+        right: var(--space-2);
+        top: 50%;
+        transform: translateY(-50%) scale(0);
+        width: var(--space-1);
+        height: var(--space-6);
+        background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-light) 100%);
+        border-radius: var(--radius-full);
+        transition: all var(--duration-quick) var(--ease-spring);
+        box-shadow: 0 0 8px var(--brand-primary);
+    }
 }
 
+/* Collapsed Navigation Links */
 .sidebar.collapsed .sidebar-nav .nav-link {
     justify-content: center;
-    padding: 12px 8px;
+    padding: var(--space-3) var(--space-2);
     gap: 0;
-}
 
-.sidebar.collapsed .sidebar-nav .nav-link:hover {
-    transform: scale(1.05);
-background: rgba(var(--brand-primary-hex), 0.1);
-    border-radius: 16px;
+    /* Enhanced collapsed effect */
+    &:hover {
+        transform: translateY(-2px) scale(1.05);
+        background: var(--glass-regular);
+        border: 1px solid var(--glass-border-light);
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 var(--glass-border-ultra-light);
+
+        &::before {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    }
 }
 
 .sidebar.collapsed .sidebar-nav .nav-link.active {
-    border-left: none;
-    padding-left: 12px;
-}
+    background: var(--glass-thick);
+    border: 1px solid var(--glass-border-medium);
 
-.sidebar.collapsed .sidebar-nav .nav-link.active::after {
-    display: none;
+    &::after {
+        display: none;
+        /* Hide right indicator when collapsed */
+    }
+
+    /* Show bottom indicator instead */
+    &::before {
+        opacity: 1;
+        transform: scale(1);
+        background: var(--glass-tinted-brand);
+    }
 }
 
 .sidebar.collapsed .sidebar-nav .nav-link .nav-icon {
     margin-right: 0;
-    min-width: 24px;
-    width: 24px;
+    min-width: var(--space-6);
+    width: var(--space-6);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
 }
 
-/* Hover State */
+/* Navigation Link Hover State */
 .sidebar-nav .nav-link:hover {
-    opacity: 1;
-    transform: translateX(4px);
-    background: rgba(var(--brand-primary-hex), 0.1);
-}
-
-.sidebar-nav .nav-link:hover::before {
-    opacity: 1;
-}
-
-/* Active/Selected State */
-.sidebar-nav .nav-link.active {
-    opacity: 1;
-    background: rgba(var(--brand-primary-hex), 0.1);
     color: var(--brand-primary);
-    backdrop-filter: var(--blur-md);
-    -webkit-backdrop-filter: var(--blur-md);
-    border-left: 3px solid var(--brand-primary);
-    padding-left: 13px;
+    transform: translateY(-1px);
 
+    /* Liquid glass effect on hover */
+    &::before {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Icon scale effect */
+    .nav-icon {
+        transform: scale(1.1);
+        filter: drop-shadow(0 2px 4px rgba(115, 196, 29, 0.3));
+    }
 }
 
-.sidebar-nav .nav-link.active::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 20px;
-    background: var(--brand-primary);
-    border-radius: 2px;
-    animation: slideIn var(--duration-normal) var(--ease-apple);
+/* Active/Selected Navigation State */
+.sidebar-nav .nav-link.active {
+    color: var(--brand-primary);
+    background: var(--glass-regular);
+    backdrop-filter: var(--blur-regular);
+    -webkit-backdrop-filter: var(--blur-regular);
+    border: 1px solid var(--glass-border-light);
+    font-weight: var(--font-semibold);
+
+    /* Glass highlight effect */
+    box-shadow:
+        inset 0 1px 0 var(--glass-border-ultra-light),
+        0 2px 8px rgba(115, 196, 29, 0.2);
+
+    /* Active background */
+    &::before {
+        opacity: 1;
+        transform: scale(1);
+        background: var(--glass-tinted-brand);
+    }
+
+    /* Active indicator animation */
+    &::after {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+        animation: activeIndicatorPulse 2s var(--ease-apple) infinite;
+    }
+
+    /* Active icon styling */
+    .nav-icon {
+        color: var(--brand-primary);
+        filter: drop-shadow(0 0 6px rgba(115, 196, 29, 0.4));
+    }
 }
 
-.sidebar-nav .nav-link i {
-    font-size: 18px;
-    width: 20px;
+/* Active indicator pulse animation */
+@keyframes activeIndicatorPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 8px var(--brand-primary);
+    }
+
+    50% {
+        opacity: 0.7;
+        box-shadow: 0 0 12px var(--brand-primary);
+    }
+}
+
+/* Navigation Icons */
+.sidebar-nav .nav-link i,
+.sidebar-nav .nav-link .nav-icon {
+    font-size: var(--text-title3);
+    width: var(--space-6);
+    min-width: var(--space-6);
     text-align: center;
     flex-shrink: 0;
-    opacity: 1 !important;
-    display: block !important;
+    transition: all var(--duration-quick) var(--ease-apple);
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Sidebar Bottom */
+/* Sidebar Bottom Section */
 .sidebar-bottom {
-    padding: 20px 16px 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--space-5) var(--space-4) var(--space-6);
+    border-top: 1px solid var(--glass-border-light);
     position: relative;
     z-index: 2;
     flex-shrink: 0;
+
+    /* Subtle bottom glass effect */
+    background: linear-gradient(135deg, var(--glass-border-ultra-light) 0%, transparent 100%);
 }
 
 .sidebar-bottom a {
@@ -904,240 +1462,591 @@ background: rgba(var(--brand-primary-hex), 0.1);
 }
 
 /* ==========================================================================
-   5. MAIN CONTENT
+   MAIN CONTENT AREA - Apple Layout
    ========================================================================== */
 .main-content {
-    margin-left: 320px;
-    margin-top: 60px;
-    min-height: calc(100vh - 60px);
-    padding: var(--space-5);
+    margin-left: calc(280px + var(--space-12));
+    /* Sidebar width + gap */
+    margin-top: calc(var(--space-14) + var(--space-12));
+    /* Navbar height + gap */
+    min-height: calc(100vh - var(--space-14) - var(--space-12));
+    padding: var(--space-6);
     background-color: transparent;
-    transition: margin-left var(--duration-normal) var(--ease-in-out);
     position: relative;
+
+    /* Smooth transitions */
+    transition: all var(--duration-smooth) var(--ease-apple);
 }
 
+/* Collapsed sidebar adjustment */
 .sidebar-collapsed .main-content {
-    margin-left: 120px;
+    margin-left: calc(80px + var(--space-12));
+    /* Collapsed sidebar width + gap */
 }
 
 /* ==========================================================================
-   6. MOBILE STYLES
+   APPLE BUTTON SYSTEM - Liquid Interactive Elements
    ========================================================================== */
-@media (max-width: 991.98px) {
 
-    /* Layout adjustments */
+/* Base Button Foundation */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    border: none;
+    border-radius: var(--radius-button-md);
+    font-family: var(--font-system);
+    font-weight: var(--font-medium);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    user-select: none;
+
+    /* Apple-style transitions */
+    transition: all var(--duration-quick) var(--ease-apple);
+
+    /* Liquid effect background */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: inherit;
+        opacity: 0;
+        transition: all var(--duration-quick) var(--ease-spring);
+    }
+
+    /* Focus management */
+    &:focus-visible {
+        outline: 2px solid var(--system-blue);
+        outline-offset: 2px;
+    }
+
+    /* Haptic-like feedback */
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Button Sizes */
+.btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-footnote);
+    border-radius: var(--radius-button-sm);
+    min-height: var(--space-8);
+}
+
+.btn-md {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-callout);
+    border-radius: var(--radius-button-md);
+    min-height: var(--space-10);
+}
+
+.btn-lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-body);
+    border-radius: var(--radius-button-lg);
+    min-height: var(--space-12);
+}
+
+/* Primary Button - Brand Focus */
+.btn-primary {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-md);
+
+    &:hover:not(:disabled) {
+        background: linear-gradient(135deg, var(--brand-primary-light) 0%, var(--brand-primary) 100%);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-1px);
+
+        &::before {
+            opacity: 0.1;
+        }
+    }
+}
+
+/* Secondary Button - Glass Style */
+.btn-secondary {
+    background: var(--glass-regular);
+    backdrop-filter: var(--blur-regular);
+    -webkit-backdrop-filter: var(--blur-regular);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border-light);
+    box-shadow: var(--shadow-glass-sm);
+
+    &:hover:not(:disabled) {
+        background: var(--glass-thick);
+        border-color: var(--glass-border-medium);
+        box-shadow: var(--shadow-glass-md);
+        transform: translateY(-1px);
+    }
+}
+
+/* Ghost Button - Minimal */
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+
+    &:hover:not(:disabled) {
+        background: var(--glass-thin);
+        color: var(--text-primary);
+        backdrop-filter: var(--blur-light);
+        -webkit-backdrop-filter: var(--blur-light);
+    }
+}
+
+/* Disabled State */
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+
+    &::before {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   APPLE CARD SYSTEM - Elevated Glass Elements
+   ========================================================================== */
+
+/* Base Card */
+.card {
+    background: var(--glass-regular);
+    backdrop-filter: var(--blur-regular);
+    -webkit-backdrop-filter: var(--blur-regular);
+    border: 1px solid var(--glass-border-light);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-glass-md);
+    overflow: hidden;
+    position: relative;
+
+    /* Smooth transitions */
+    transition: all var(--duration-quick) var(--ease-apple);
+
+    /* Hover elevation */
+    &:hover {
+        background: var(--glass-thick);
+        border-color: var(--glass-border-medium);
+        box-shadow: var(--shadow-glass-lg);
+        transform: translateY(-2px);
+    }
+
+    /* Glass highlight effect */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--glass-border-ultra-light);
+    }
+}
+
+.card-header {
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--glass-border-light);
+    background: linear-gradient(135deg, var(--glass-border-ultra-light) 0%, transparent 100%);
+}
+
+.card-body {
+    padding: var(--space-6);
+}
+
+.card-footer {
+    padding: var(--space-6);
+    border-top: 1px solid var(--glass-border-light);
+    background: linear-gradient(135deg, transparent 0%, var(--glass-border-ultra-light) 100%);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - Mobile First Apple Approach
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+
+    /* Mobile Navigation */
     .navbar {
-        display: flex;
-        width: 100% !important;
-        left: 0 !important;
-        right: auto !important;
-        position: fixed;
+        left: var(--space-6);
+        right: var(--space-6);
+        top: var(--space-4);
+        height: var(--space-12);
+        padding: 0 var(--space-4);
     }
 
     .navbar-search {
-        max-width: 250px;
+        max-width: 200px;
     }
 
-    .user-name-navbar {
-        display: none !important;
-    }
-
+    /* Mobile Sidebar */
     .sidebar {
         transform: translateX(-100%);
         top: 0;
         left: 0;
         right: auto;
         bottom: 0;
-        border-radius: 0 var(--radius-2xl) var(--radius-2xl) 0;
+        border-radius: 0 var(--radius-sidebar) var(--radius-sidebar) 0;
         width: 280px;
-        transition: transform var(--duration-normal) var(--ease-in-out);
+
+        &.show {
+            transform: translateX(0);
+        }
+
+        /* Enhanced mobile backdrop */
+        &::after {
+            animation-duration: 15s;
+        }
     }
 
-    .sidebar.show {
-        transform: translateX(0);
-    }
-
+    /* Mobile Main Content */
     .main-content {
         margin-left: 0;
-        margin-top: var(--space-15);
-        padding: 0 0 120px 0;
-        min-height: calc(100vh - var(--space-15));
-    }
-
-    /* Mobile Dashboard */
-    .mobile-dashboard {
-        display: block;
+        margin-top: calc(var(--space-12) + var(--space-8));
         padding: var(--space-4);
-    }
-
-    .user-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: var(--space-6);
-        background: var(--bg-primary);
-        padding: var(--space-4);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-sm);
-    }
-
-    .user-info {
-        display: flex;
-        align-items: center;
-    }
-
-    .user-avatar {
-        width: 48px;
-        height: 48px;
-        border-radius: var(--radius-full);
-        background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-inverse);
-        font-weight: var(--font-semibold);
-        margin-right: var(--space-4);
-    }
-
-    .user-avatar img {
-        width: 100%;
-        height: 100%;
-        border-radius: var(--radius-full);
-        object-fit: cover;
-    }
-
-    .user-details h3 {
-        margin: 0;
-        font-size: var(--text-lg);
-        font-weight: var(--font-semibold);
-        color: var(--text-primary);
-    }
-
-    .user-details p {
-        margin: 0;
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-    }
-
-    .date-badge .badge {
-        font-size: var(--text-sm);
-        padding: var(--space-2) var(--space-4);
-        border-radius: var(--radius-full);
-    }
-
-    /* Time Card */
-    .time-card {
-        background: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-dark) 100%);
-        color: var(--text-inverse);
-        padding: var(--space-6);
-        border-radius: var(--radius-xl);
-        margin-bottom: var(--space-8);
-        box-shadow: var(--shadow-lg);
-    }
-
-    .time-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: var(--space-4);
-    }
-
-    .time-display {
-        background: var(--glass-tertiary);
-        padding: var(--space-2) var(--space-4);
-        border-radius: var(--radius-full);
-        font-size: var(--text-xl);
-        font-weight: var(--font-semibold);
-    }
-
-    .progress {
-        height: 4px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 2px;
-        margin-bottom: 0.5rem;
-    }
-
-    .progress-bar {
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 2px;
-    }
-
-    /* Apps Grid */
-    .apps-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-4);
-        margin-bottom: var(--space-8);
-    }
-
-    .app-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        color: var(--text-primary);
-        padding: var(--space-6) var(--space-4);
-        background: var(--bg-primary);
-        border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-sm);
-        transition: all var(--duration-fast) var(--ease-out);
-    }
-
-    .app-item:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-        color: var(--text-primary);
-        text-decoration: none;
-    }
-
-    .app-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: var(--radius-lg);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: var(--space-3);
-        font-size: var(--text-2xl);
-        color: var(--text-inverse);
-    }
-
-    .app-icon.blue {
-        background: linear-gradient(135deg, var(--color-info), var(--color-info-dark));
-    }
-
-    .app-icon.purple {
-        background: linear-gradient(135deg, #8B5CF6, #7C3AED);
-    }
-
-    .app-icon.orange {
-        background: linear-gradient(135deg, var(--brand-accent), var(--brand-accent-dark));
-    }
-
-    .app-icon.cyan {
-        background: linear-gradient(135deg, #06B6D4, #0891B2);
-    }
-
-    .app-icon.red {
-        background: linear-gradient(135deg, var(--color-error), var(--color-error-dark));
-    }
-
-    .app-icon.bg-danger {
-        background: linear-gradient(135deg, #ef4444, #dc2626);
-    }
-
-    .app-icon.bg-secondary {
-        background: linear-gradient(135deg, #06b6d4, #0891b2);
-    }
-
-    .app-name {
-        font-size: 0.875rem;
-        font-weight: 500;
-        text-align: center;
+        padding-bottom: calc(var(--space-20) + var(--space-4));
+        /* Space for bottom nav */
     }
 }
 
-/* ===== COMPONENT TESTING STYLES ===== */
+/* ==========================================================================
+   APPLE ANIMATIONS & MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* Fade Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading Animations */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Glass Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+/* Animation Utility Classes */
+.animate-fade-in {
+    animation: fadeIn var(--duration-moderate) var(--ease-apple);
+}
+
+.animate-fade-in-scale {
+    animation: fadeInScale var(--duration-moderate) var(--ease-apple);
+}
+
+.animate-slide-in-up {
+    animation: slideInUp var(--duration-moderate) var(--ease-apple);
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s var(--ease-standard) infinite;
+}
+
+/* ==========================================================================
+   UTILITY CLASSES - Apple Design Helpers
+   ========================================================================== */
+
+/* Glass Utilities */
+.glass-light {
+    background: var(--glass-regular);
+    backdrop-filter: var(--blur-regular);
+    -webkit-backdrop-filter: var(--blur-regular);
+    border: 1px solid var(--glass-border-light);
+}
+
+.glass-medium {
+    background: var(--glass-thick);
+    backdrop-filter: var(--blur-strong);
+    -webkit-backdrop-filter: var(--blur-strong);
+    border: 1px solid var(--glass-border-medium);
+}
+
+.glass-strong {
+    background: var(--glass-ultra-thick);
+    backdrop-filter: var(--blur-ultra-strong);
+    -webkit-backdrop-filter: var(--blur-ultra-strong);
+    border: 1px solid var(--glass-border-strong);
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform var(--duration-quick) var(--ease-apple);
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.hover-glow {
+    transition: box-shadow var(--duration-quick) var(--ease-apple);
+
+    &:hover {
+        box-shadow: 0 0 20px rgba(115, 196, 29, 0.3);
+    }
+}
+
+.hover-scale {
+    transition: transform var(--duration-quick) var(--ease-spring);
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+/* Focus Utilities */
+.focus-ring {
+    &:focus-visible {
+        outline: 2px solid var(--system-blue);
+        outline-offset: 2px;
+        border-radius: var(--radius-sm);
+    }
+}
+
+/* Text Utilities */
+.text-gradient-brand {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+}
+
+.user-details h3 {
+    margin: 0;
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+}
+
+.user-details p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.date-badge .badge {
+    font-size: var(--text-sm);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+}
+
+/* Time Card */
+.time-card {
+    background: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-dark) 100%);
+    color: var(--text-inverse);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-8);
+    box-shadow: var(--shadow-lg);
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
+.time-display {
+    background: var(--glass-tertiary);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+}
+
+.progress {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+}
+
+/* Apps Grid */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    padding: var(--space-6) var(--space-4);
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration-fast) var(--ease-out);
+}
+
+.app-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.app-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-3);
+    font-size: var(--text-2xl);
+    color: var(--text-inverse);
+}
+
+.app-icon.blue {
+    background: linear-gradient(135deg, var(--color-info), var(--color-info-dark));
+}
+
+.app-icon.purple {
+    background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+}
+
+.app-icon.orange {
+    background: linear-gradient(135deg, var(--brand-accent), var(--brand-accent-dark));
+}
+
+.app-icon.cyan {
+    background: linear-gradient(135deg, #06B6D4, #0891B2);
+}
+
+.app-icon.red {
+    background: linear-gradient(135deg, var(--color-error), var(--color-error-dark));
+}
+
+.app-icon.bg-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.app-icon.bg-secondary {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+.app-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ==========================================================================
+   COMPONENT TESTING & LEGACY SUPPORT
+   ========================================================================== */
 .btn-group-custom {
     display: flex;
     flex-wrap: wrap;
@@ -2254,36 +3163,57 @@ background: rgba(var(--brand-primary-hex), 0.1);
 }
 
 /* ==========================================================================
-   PARADISE ICONS INLINE SYSTEM
+   PARADISE ICONS - APPLE ENHANCED SYSTEM
    ========================================================================== */
 
-/* Base icon styles */
+/* Base icon styles with Apple enhancements */
 .paradise-icon {
     display: inline-block;
     vertical-align: middle;
     fill: none;
     flex-shrink: 0;
+    transition: all var(--duration-quick) var(--ease-apple);
 }
 
-/* Icon sizes */
+/* Apple-style Icon sizes */
 .paradise-icon--xs {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
 }
 
 .paradise-icon--sm {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .paradise-icon--md {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
 }
 
 .paradise-icon--lg {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+}
+
+.paradise-icon--xl {
+    width: 36px;
+    height: 36px;
+}
+
+/* Interactive icons with Apple-style feedback */
+.paradise-icon--interactive {
+    cursor: pointer;
+    transition: all var(--duration-quick) var(--ease-apple);
+
+    &:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
 }
 
 /* ==========================================================================
