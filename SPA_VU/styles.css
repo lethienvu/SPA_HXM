@@ -6,136 +6,179 @@
 
 :root {
     /* ==========================================================================
-       1. BRAND COLORS - Primary Brand Identity (Preserved)
+       1. BRAND COLORS - Modern Vibrant Palette
        ========================================================================== */
     --brand-primary: #73c41d;
-    --brand-primary-light: #8ED640;
-    --brand-primary-dark: #5AA10F;
+    --brand-primary-light: #8FE63A;
+    --brand-primary-dark: #5DA916;
     --brand-primary-darker: #4A8A0C;
     --brand-primary-hex: 115, 196, 29;
     --brand-primary-rgb: rgba(115, 196, 29, 1);
+    --brand-primary-alpha-10: rgba(115, 196, 29, 0.10);
+    --brand-primary-alpha-20: rgba(115, 196, 29, 0.20);
+    --brand-primary-alpha-30: rgba(115, 196, 29, 0.30);
 
-    --brand-secondary: #004C39;
-    --brand-secondary-light: #0D6B52;
-    --brand-secondary-dark: #003329;
-    --brand-secondary-rgb: rgba(0, 76, 57, 1);
+    --brand-secondary: #1E3A5F;
+    --brand-secondary-light: #2B5282;
+    --brand-secondary-dark: #152B47;
+    --brand-secondary-rgb: rgba(30, 58, 95, 1);
+    --brand-secondary-alpha-10: rgba(30, 58, 95, 0.10);
 
-    --brand-accent: #FF8A00;
-    --brand-accent-light: #FFA433;
-    --brand-accent-dark: #E67700;
-    --brand-accent-rgb: rgba(255, 138, 0, 1);
+    --brand-accent: #FF6B35;
+    --brand-accent-light: #FF8557;
+    --brand-accent-dark: #E65528;
+    --brand-accent-rgb: rgba(255, 107, 53, 1);
+    --brand-accent-alpha-10: rgba(255, 107, 53, 0.10);
 
     /* ==========================================================================
-       2. APPLE SYSTEM COLORS - iOS/macOS Inspired
+       2. VIBRANT SYSTEM COLORS - Modern macOS/iOS Palette
        ========================================================================== */
-    /* System Blues */
-    --system-blue: #007AFF;
-    --system-blue-light: #5AC8FA;
-    --system-blue-dark: #0051D5;
+    /* System Blues - Ocean & Sky */
+    --system-blue: #0A84FF;
+    --system-blue-light: #64D2FF;
+    --system-blue-dark: #0066CC;
+    --system-blue-alpha: rgba(10, 132, 255, 0.12);
 
-    /* System Greens */
-    --system-green: #30D158;
-    --system-green-light: #63E6E2;
-    --system-green-dark: #248A3D;
+    /* System Greens - Fresh & Energetic */
+    --system-green: #32D74B;
+    --system-green-light: #64E986;
+    --system-green-dark: #28A745;
+    --system-green-alpha: rgba(50, 215, 75, 0.12);
 
-    /* System Reds */
-    --system-red: #FF3B30;
-    --system-red-light: #FF6961;
-    --system-red-dark: #D70015;
+    /* System Reds - Bold & Clear */
+    --system-red: #FF453A;
+    --system-red-light: #FF6B6B;
+    --system-red-dark: #DC1C13;
+    --system-red-alpha: rgba(255, 69, 58, 0.12);
 
-    /* System Oranges */
-    --system-orange: #FF9500;
-    --system-orange-light: #FFCC02;
-    --system-orange-dark: #FF8C00;
+    /* System Oranges - Warm & Inviting */
+    --system-orange: #FF9F0A;
+    --system-orange-light: #FFB340;
+    --system-orange-dark: #F28500;
+    --system-orange-alpha: rgba(255, 159, 10, 0.12);
 
-    /* System Purples */
-    --system-purple: #AF52DE;
-    --system-purple-light: #BF5AF2;
-    --system-purple-dark: #8E44AD;
+    /* System Purples - Creative & Premium */
+    --system-purple: #BF5AF2;
+    --system-purple-light: #D68EFF;
+    --system-purple-dark: #9747C4;
+    --system-purple-alpha: rgba(191, 90, 242, 0.12);
+
+    /* System Pinks - Playful & Modern */
+    --system-pink: #FF375F;
+    --system-pink-light: #FF6B8A;
+    --system-pink-dark: #E6194B;
+    --system-pink-alpha: rgba(255, 55, 95, 0.12);
+
+    /* System Teals - Professional & Calm */
+    --system-teal: #5AC8FA;
+    --system-teal-light: #70D7FF;
+    --system-teal-dark: #40ACDB;
+    --system-teal-alpha: rgba(90, 200, 250, 0.12);
+
+    /* System Indigos - Deep & Sophisticated */
+    --system-indigo: #5E5CE6;
+    --system-indigo-light: #8B89FF;
+    --system-indigo-dark: #4A48CC;
+    --system-indigo-alpha: rgba(94, 92, 230, 0.12);
 
     /* ==========================================================================
-       3. SEMANTIC COLORS - Enhanced Apple Style
+       3. SEMANTIC COLORS - Vibrant Feedback System
        ========================================================================== */
     --color-success: var(--system-green);
     --color-success-light: var(--system-green-light);
     --color-success-dark: var(--system-green-dark);
-    --color-success-bg: rgba(48, 209, 88, 0.12);
+    --color-success-bg: var(--system-green-alpha);
+    --color-success-border: rgba(50, 215, 75, 0.25);
 
     --color-warning: var(--system-orange);
     --color-warning-light: var(--system-orange-light);
     --color-warning-dark: var(--system-orange-dark);
-    --color-warning-bg: rgba(255, 149, 0, 0.12);
+    --color-warning-bg: var(--system-orange-alpha);
+    --color-warning-border: rgba(255, 159, 10, 0.25);
 
     --color-error: var(--system-red);
     --color-error-light: var(--system-red-light);
     --color-error-dark: var(--system-red-dark);
-    --color-error-bg: rgba(255, 59, 48, 0.12);
+    --color-error-bg: var(--system-red-alpha);
+    --color-error-border: rgba(255, 69, 58, 0.25);
 
     --color-info: var(--system-blue);
     --color-info-light: var(--system-blue-light);
     --color-info-dark: var(--system-blue-dark);
-    --color-info-bg: rgba(115, 196, 29, 0.12);
+    --color-info-bg: var(--system-blue-alpha);
+    --color-info-border: rgba(10, 132, 255, 0.25);
 
     /* ==========================================================================
-       4. APPLE NEUTRAL SYSTEM - Dynamic Colors
+       4. WARM NEUTRAL SYSTEM - Sophisticated Gray Scale
        ========================================================================== */
     --neutral-0: #FFFFFF;
-    --neutral-50: #FAFAFA;
-    --neutral-100: #F2F2F7;
-    --neutral-200: #E5E5EA;
-    --neutral-300: #D1D1D6;
-    --neutral-400: #C7C7CC;
-    --neutral-500: #AEAEB2;
-    --neutral-600: #8E8E93;
-    --neutral-700: #636366;
-    --neutral-800: #48484A;
-    --neutral-900: #1C1C1E;
+    --neutral-50: #FAFBFC;
+    --neutral-100: #F5F6F8;
+    --neutral-200: #E8EAED;
+    --neutral-300: #D3D6DB;
+    --neutral-400: #B8BCC4;
+    --neutral-500: #9BA1AB;
+    --neutral-600: #6B7280;
+    --neutral-700: #4B5563;
+    --neutral-800: #374151;
+    --neutral-900: #1F2937;
+    --neutral-950: #111827;
 
-    /* Apple Text Colors */
+    /* Enhanced Text Colors */
     --text-primary: var(--neutral-900);
     --text-secondary: var(--neutral-600);
     --text-tertiary: var(--neutral-500);
     --text-quaternary: var(--neutral-400);
+    --text-disabled: var(--neutral-300);
     --text-inverse: var(--neutral-0);
     --text-link: var(--system-blue);
+    --text-link-hover: var(--system-blue-dark);
 
-    /* Apple Background Colors */
+    /* Modern Background System */
     --bg-primary: var(--neutral-0);
     --bg-secondary: var(--neutral-50);
     --bg-tertiary: var(--neutral-100);
-    --bg-grouped: var(--neutral-100);
+    --bg-hover: var(--neutral-100);
+    --bg-active: var(--neutral-200);
+    --bg-grouped: #F8F9FA;
     --bg-elevated: var(--neutral-0);
-    --bg-overlay: rgba(28, 28, 30, 0.4);
+    --bg-overlay: rgba(17, 24, 39, 0.5);
+    --bg-overlay-light: rgba(17, 24, 39, 0.3);
+    --bg-overlay-strong: rgba(17, 24, 39, 0.7);
 
     /* ==========================================================================
-       5. LIQUID GLASS SYSTEM - Apple's Glassmorphism Evolution
+       5. REFINED GLASS SYSTEM - macOS Monterey Style
        ========================================================================== */
-    /* Liquid Glass Backgrounds - Multi-layer approach */
-    --glass-ultra-thin: rgba(255, 255, 255, 0.05);
-    --glass-thin: rgba(255, 255, 255, 0.08);
-    --glass-regular: rgba(255, 255, 255, 0.12);
-    --glass-thick: rgba(255, 255, 255, 0.18);
-    --glass-ultra-thick: rgba(255, 255, 255, 0.25);
+    /* Premium Glass Backgrounds - Multi-layer precision */
+    --glass-ultra-thin: rgba(255, 255, 255, 0.04);
+    --glass-thin: rgba(255, 255, 255, 0.07);
+    --glass-regular: rgba(255, 255, 255, 0.10);
+    --glass-thick: rgba(255, 255, 255, 0.15);
+    --glass-ultra-thick: rgba(255, 255, 255, 0.22);
+    --glass-opaque: rgba(255, 255, 255, 0.92);
 
-    /* Glass Tinted Backgrounds */
-    --glass-tinted-blue: rgba(0, 122, 255, 0.08);
-    --glass-tinted-green: rgba(48, 209, 88, 0.08);
-    --glass-tinted-red: rgba(255, 59, 48, 0.08);
+    /* Vibrant Glass Tints */
+    --glass-tinted-blue: rgba(10, 132, 255, 0.06);
+    --glass-tinted-green: rgba(115, 196, 29, 0.06);
+    --glass-tinted-red: rgba(255, 69, 58, 0.06);
+    --glass-tinted-purple: rgba(191, 90, 242, 0.06);
+    --glass-tinted-orange: rgba(255, 107, 53, 0.06);
     --glass-tinted-brand: rgba(115, 196, 29, 0.08);
 
-    /* Liquid Glass Borders - Subtle highlights */
-    --glass-border-ultra-light: rgba(255, 255, 255, 0.08);
-    --glass-border-light: rgba(255, 255, 255, 0.12);
-    --glass-border-medium: rgba(255, 255, 255, 0.18);
-    --glass-border-strong: rgba(255, 255, 255, 0.25);
-    --glass-border-ultra-strong: rgba(255, 255, 255, 0.35);
+    /* Sophisticated Glass Borders */
+    --glass-border-subtle: rgba(255, 255, 255, 0.05);
+    --glass-border-light: rgba(255, 255, 255, 0.10);
+    --glass-border-medium: rgba(255, 255, 255, 0.15);
+    --glass-border-strong: rgba(255, 255, 255, 0.20);
+    --glass-border-accent: rgba(255, 255, 255, 0.30);
 
-    /* Apple Backdrop Blur System */
-    --blur-ultra-light: blur(8px);
-    --blur-light: blur(12px);
-    --blur-regular: blur(20px);
-    --blur-strong: blur(32px);
-    --blur-ultra-strong: blur(48px);
+    /* Premium Backdrop Blur - macOS Quality */
+    --blur-subtle: blur(6px);
+    --blur-light: blur(10px);
+    --blur-regular: blur(16px);
+    --blur-strong: blur(24px);
+    --blur-ultra-strong: blur(40px);
+    --blur-extreme: blur(64px);
 
     /* ==========================================================================
        6. TYPOGRAPHY SYSTEM - Apple San Francisco
@@ -265,31 +308,52 @@
     /* 16px strong */
 
     /* ==========================================================================
-       9. APPLE SHADOW SYSTEM - Depth & Elevation
+       9. PREMIUM SHADOW SYSTEM - macOS Big Sur/Monterey Style
        ========================================================================== */
-    /* Apple-style Shadows with proper layering */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.06);
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.08);
-    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.1);
-    --shadow-2xl: 0 24px 48px rgba(0, 0, 0, 0.15), 0 16px 32px rgba(0, 0, 0, 0.12);
+    /* Refined Shadows - Subtle & Sophisticated */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03), 0 0 1px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.04);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 10px rgba(0, 0, 0, 0.05);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.10), 0 12px 24px rgba(0, 0, 0, 0.07);
 
-    /* Liquid Glass Shadows - Enhanced for glassmorphism */
+    /* Premium Glass Shadows - macOS Quality */
+    --shadow-glass-xs:
+        0 2px 8px rgba(0, 0, 0, 0.03),
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        inset 0 0.5px 0 rgba(255, 255, 255, 0.15);
+
     --shadow-glass-sm:
-        0 4px 20px rgba(0, 0, 0, 0.05),
-        0 1px 2px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-    --shadow-glass-md:
-        0 8px 32px rgba(0, 0, 0, 0.08),
-        0 4px 8px rgba(0, 0, 0, 0.06),
+        0 4px 16px rgba(0, 0, 0, 0.04),
+        0 2px 4px rgba(0, 0, 0, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.12);
 
+    --shadow-glass-md:
+        0 8px 24px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
     --shadow-glass-lg:
-        0 16px 64px rgba(0, 0, 0, 0.04),
-        0 8px 16px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 16px 40px rgba(0, 0, 0, 0.06),
+        0 8px 16px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    --shadow-glass-xl:
+        0 24px 64px rgba(0, 0, 0, 0.08),
+        0 12px 24px rgba(0, 0, 0, 0.05),
+        inset 0 1px 1px rgba(255, 255, 255, 0.12);
+
+    /* Colored Shadows - Vibrant Accents */
+    --shadow-primary: 0 8px 20px rgba(115, 196, 29, 0.15), 0 4px 8px rgba(115, 196, 29, 0.10);
+    --shadow-blue: 0 8px 20px rgba(10, 132, 255, 0.15), 0 4px 8px rgba(10, 132, 255, 0.10);
+    --shadow-purple: 0 8px 20px rgba(191, 90, 242, 0.15), 0 4px 8px rgba(191, 90, 242, 0.10);
+    --shadow-orange: 0 8px 20px rgba(255, 107, 53, 0.15), 0 4px 8px rgba(255, 107, 53, 0.10);
+
+    /* Interactive Shadows */
+    --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.06);
+    --shadow-active: 0 4px 8px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-focus: 0 0 0 3px var(--brand-primary-alpha-20), 0 4px 12px rgba(115, 196, 29, 0.15);
 
     /* ==========================================================================
        10. APPLE ANIMATION SYSTEM - Perfect Timing & Easing
@@ -363,7 +427,7 @@
     /* 40px */
     --navbar-avatar-border-color: var(--brand-primary);
     --navbar-avatar-hover-border-color: var(--brand-primary);
-    --navbar-avatar-background: var(--bg-secondary);
+    --navbar-avatar-background: var(---bg-primary);
     --navbar-avatar-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
@@ -797,85 +861,96 @@ a:hover {
         left: -50%;
         width: 200%;
 
-    /* ==========================================================================
+        /* ==========================================================================
        NAVBAR AVATAR — .user-avatar-navbar
        - Uses design tokens from :root (size, colors, shadows)
        - Responsive, centered content, thin border, subtle hover shadow/border
        - Works with <img>, <svg>, or initial letters inside a <button> or <div>
        ========================================================================== */
-    .user-avatar-navbar {
-        /* local overrideable size (falls back to navbar token) */
-        --ua-size: var(--navbar-avatar-size, 2.5rem);
+        .user-avatar-navbar {
+            /* local overrideable size (falls back to navbar token) */
+            --ua-size: var(--navbar-avatar-size, 2.5rem);
 
-        width: var(--ua-size);
-        height: var(--ua-size);
+            width: var(--ua-size);
+            height: var(--ua-size);
 
-        display: inline-grid;
-        place-items: center; /* center icon/avatar */
+            display: inline-grid;
+            place-items: center;
+            /* center icon/avatar */
 
-        /* circular avatar */
-        border-radius: var(--radius-full);
+            /* circular avatar */
+            border-radius: var(--radius-full);
 
-        /* subtle base visuals */
-        background: var(--navbar-avatar-background, var(--bg-secondary));
-        border: 1px solid var(--navbar-avatar-border-color, var(--neutral-300));
-        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+            /* subtle base visuals */
+            background: var(--navbar-avatar-background, var(--bg-secondary));
+            border: 1px solid var(--navbar-avatar-border-color, var(--neutral-300));
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 
-        /* accessible, clickable element sizing */
-        min-width: var(--ua-size);
-        min-height: var(--ua-size);
+            /* accessible, clickable element sizing */
+            min-width: var(--ua-size);
+            min-height: var(--ua-size);
 
-        overflow: hidden;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
+            overflow: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
 
-        /* micro-interaction */
-        transition: transform var(--duration-quick) var(--ease-apple),
-                    box-shadow var(--duration-snappy) var(--ease-apple),
-                    border-color var(--duration-snappy) var(--ease-apple);
+            /* micro-interaction */
+            transition: transform var(--duration-quick) var(--ease-apple),
+                box-shadow var(--duration-snappy) var(--ease-apple),
+                border-color var(--duration-snappy) var(--ease-apple);
 
-        cursor: pointer;
-        vertical-align: middle;
-    }
+            cursor: pointer;
+            vertical-align: middle;
+        }
 
-    .user-avatar-navbar img,
-    .user-avatar-navbar svg,
-    .user-avatar-navbar .initials {
-        width: calc(var(--ua-size) - 6px);
-        height: calc(var(--ua-size) - 6px);
-        border-radius: inherit;
-        object-fit: cover;
-        display: block;
-    }
+        .user-avatar-navbar img,
+        .user-avatar-navbar svg,
+        .user-avatar-navbar .initials {
+            width: calc(var(--ua-size) - 6px);
+            height: calc(var(--ua-size) - 6px);
+            border-radius: inherit;
+            object-fit: cover;
+            display: block;
+        }
 
-    /* Hover & focus states — thin border color change + gentle shadow */
-    .user-avatar-navbar:hover,
-    .user-avatar-navbar:focus {
-        transform: translateY(-2px);
-        box-shadow: var(--navbar-avatar-shadow-hover, 0 6px 14px rgba(0,0,0,0.12));
-        border-color: var(--navbar-avatar-hover-border-color, var(--brand-primary));
-    }
+        /* Hover & focus states — thin border color change + gentle shadow */
+        .user-avatar-navbar:hover,
+        .user-avatar-navbar:focus {
+            transform: translateY(-2px);
+            box-shadow: var(--navbar-avatar-shadow-hover, 0 6px 14px rgba(0, 0, 0, 0.12));
+            border-color: var(--navbar-avatar-hover-border-color, var(--brand-primary));
+        }
 
-    .user-avatar-navbar:active {
-        transform: translateY(0) scale(0.98);
-    }
+        .user-avatar-navbar:active {
+            transform: translateY(0) scale(0.98);
+        }
 
-    .user-avatar-navbar:focus-visible {
-        outline: 2px solid rgba(var(--brand-primary-hex, 115,196,29), 0.14);
-        outline-offset: 3px;
-    }
+        .user-avatar-navbar:focus-visible {
+            outline: 2px solid rgba(var(--brand-primary-hex, 115, 196, 29), 0.14);
+            outline-offset: 3px;
+        }
 
-    /* small/compact variants for tighter navbars */
-    .user-avatar-navbar--sm { --ua-size: 1.75rem; }
-    .user-avatar-navbar--md { --ua-size: 2.25rem; }
-    .user-avatar-navbar--lg { --ua-size: 3rem; }
+        /* small/compact variants for tighter navbars */
+        .user-avatar-navbar--sm {
+            --ua-size: 1.75rem;
+        }
 
-    /* Responsive tweak: reduce avatar on very small viewports */
-    @media (max-width: 480px) {
-        .user-avatar-navbar { --ua-size: 2rem; }
-    }
+        .user-avatar-navbar--md {
+            --ua-size: 2.25rem;
+        }
 
-    /* Example usage (HTML):
+        .user-avatar-navbar--lg {
+            --ua-size: 3rem;
+        }
+
+        /* Responsive tweak: reduce avatar on very small viewports */
+        @media (max-width: 480px) {
+            .user-avatar-navbar {
+                --ua-size: 2rem;
+            }
+        }
+
+        /* Example usage (HTML):
        <button class="user-avatar-navbar" aria-label="Open user menu">
            <img src="/assets/avatar.jpg" alt="User avatar" />
        </button>
@@ -887,11 +962,11 @@ a:hover {
     */
         height: 200%;
         background: conic-gradient(from 0deg at 50% 50%,
-                transparent 0deg,
-                var(--glass-border-ultra-light) 30deg,
-                transparent 60deg,
-                var(--glass-border-light) 90deg,
-                transparent 120deg);
+            transparent 0deg,
+            var(--glass-border-ultra-light) 30deg,
+            transparent 60deg,
+            var(--glass-border-light) 90deg,
+            transparent 120deg);
         border-radius: inherit;
         opacity: 0.3;
         animation: sidebarGradientRotate 20s linear infinite;
@@ -944,8 +1019,6 @@ a:hover {
 
     /* Subtle glass effect for header */
     background: linear-gradient(135deg, var(--glass-border-ultra-light) 0%, transparent 100%);
-    backdrop-filter: var(--blur-light);
-    -webkit-backdrop-filter: var(--blur-light);
 }
 
 /* Apple-style Toggle Button */
@@ -2476,7 +2549,7 @@ a:hover {
     &:focus {
         outline: none;
         border-color: var(--brand-primary);
-        box-shadow: 0 0 0 3px var(--color-info-bg);
+        box-shadow: 0 0 0 3px rgba(var(--brand-primary-hex), 0.1);
     }
 
     &:disabled {
@@ -3666,7 +3739,6 @@ a:hover {
     backdrop-filter: var(--blur-md);
     -webkit-backdrop-filter: var(--blur-md);
     margin-bottom: var(--space-10);
-    animation: slideInUp var(--duration-normal) var(--ease-apple) var(--delay-xl) both;
 }
 
 .search-input {
