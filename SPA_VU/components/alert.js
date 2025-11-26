@@ -457,7 +457,7 @@ class Alert {
   createCloseButton() {
     const closeBtn = document.createElement("button");
     closeBtn.className = "alert-close";
-    closeBtn.innerHTML = '<i class="bi bi-x"></i>';
+    closeBtn.innerHTML = ''<i class="bi bi-x"></i>'';
     closeBtn.setAttribute("aria-label", "Đóng thông báo");
 
     return closeBtn;

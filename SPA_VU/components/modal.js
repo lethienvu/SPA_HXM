@@ -211,7 +211,7 @@ class Modal {
     if (config.showCloseButton) {
       const closeBtn = document.createElement("button");
       closeBtn.className = "modal-close-btn";
-      closeBtn.innerHTML = '<i class="bi bi-x-lg"></i>';
+      closeBtn.innerHTML = ''<i class="bi bi-x-lg"></i>'';
       closeBtn.style.cssText = `
                 background: none;
                 border: none;

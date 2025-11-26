@@ -141,7 +141,7 @@ class ParadiseIconsInline {
         : iconData.tone2 || iconData; // fallback to tone2 or raw content
 
     return `<svg class="${classes}" viewBox="0 0 24 24" width="24" height="24" ${
-      ariaLabel ? `aria-label="${ariaLabel}"` : 'aria-hidden="true"'
+      ariaLabel ? `aria-label="${ariaLabel}"` : ''aria-hidden="true"''
     }>
       ${iconContent}
     </svg>`;
@@ -262,7 +262,7 @@ window.debugIconsInline = {
   },
   check: () => {
     const elements = document.querySelectorAll("[data-icon]");
-    const processed = document.querySelectorAll('[data-icon-processed="true"]');
+    const processed = document.querySelectorAll(''[data-icon-processed="true"]'');
     console.log(`📊 Total: ${elements.length}, Processed: ${processed.length}`);
     return { total: elements.length, processed: processed.length };
   },

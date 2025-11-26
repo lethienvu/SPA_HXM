@@ -226,28 +226,28 @@
 
     <script>
         function toggleSidebarCollapse() {
-            const appContainer = document.getElementById('appContainer');
-            const sidebar = document.getElementById('sidebar');
+            const appContainer = document.getElementById(''appContainer'');
+            const sidebar = document.getElementById(''sidebar'');
 
-            appContainer.classList.toggle('sidebar-collapsed');
-            sidebar.classList.toggle('collapsed');
+            appContainer.classList.toggle(''sidebar-collapsed'');
+            sidebar.classList.toggle(''collapsed'');
         }
 
         function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('show');
+            const sidebar = document.getElementById(''sidebar'');
+            sidebar.classList.toggle(''show'');
         }
 
         // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function (event) {
-            const sidebar = document.getElementById('sidebar');
-            const toggleBtn = document.querySelector('.navbar-toggler');
+        document.addEventListener(''click'', function (event) {
+            const sidebar = document.getElementById(''sidebar'');
+            const toggleBtn = document.querySelector(''.navbar-toggler'');
 
             if (window.innerWidth <= 768 &&
                 !sidebar.contains(event.target) &&
                 !toggleBtn.contains(event.target) &&
-                sidebar.classList.contains('show')) {
-                sidebar.classList.remove('show');
+                sidebar.classList.contains(''show'')) {
+                sidebar.classList.remove(''show'');
             }
         });
     </script>
