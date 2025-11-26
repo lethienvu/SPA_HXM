@@ -1,6 +1,7 @@
 # 📋 HƯỚNG DẪN MIGRATION SPA_VU
 
 ## 📁 File đã tạo
+
 - `SQL/SAFE_MIGRATION_SPA_VU.sql` - Script migration an toàn với backup & rollback
 
 ---
@@ -8,16 +9,20 @@
 ## 🚀 CÁCH CHẠY MIGRATION
 
 ### Bước 1: Mở SQL Server Management Studio (SSMS)
+
 1. Kết nối đến SQL Server của bạn
 2. Mở file `SQL/SAFE_MIGRATION_SPA_VU.sql`
 
 ### Bước 2: Cấu hình Database
+
 Ở dòng đầu tiên của script, thay đổi tên database nếu cần:
+
 ```sql
 USE [Paradise_HPSF]; -- ⬅️ THAY ĐỔI NẾU DATABASE KHÁC
 ```
 
 ### Bước 3: Chạy Script
+
 - Nhấn **F5** hoặc click **Execute**
 - Script sẽ tự động:
   1. ✅ Tạo backup table với timestamp
@@ -27,7 +32,9 @@ USE [Paradise_HPSF]; -- ⬅️ THAY ĐỔI NẾU DATABASE KHÁC
   5. ✅ Commit nếu thành công, Rollback nếu lỗi
 
 ### Bước 4: Kiểm tra kết quả
+
 Sau khi chạy xong, bạn sẽ thấy:
+
 ```
 ✅ MIGRATION HOÀN TẤT THÀNH CÔNG!
 Backup table: tblSPA_Templates_backup_20251126_143052
@@ -44,12 +51,13 @@ Nếu có vấn đề, mở file `SAFE_MIGRATION_SPA_VU.sql`, cuộn xuống ph�
 3. Chạy phần rollback
 
 Ví dụ:
+
 ```sql
 -- Xóa dữ liệu mới
 DELETE FROM tblSPA_Templates WHERE ComponentID = 'ess-dashboard';
 
 -- Khôi phục từ backup
-INSERT INTO tblSPA_Templates 
+INSERT INTO tblSPA_Templates
 SELECT * FROM tblSPA_Templates_backup_20251126_143052;
 ```
 
@@ -77,11 +85,11 @@ Sau vài ngày khi đã xác nhận migration hoạt động tốt:
 
 Script sẽ cập nhật bảng `tblSPA_Templates` với 3 records:
 
-| ComponentID | TemplateType | Description |
-|-------------|--------------|-------------|
-| ess-dashboard | html | Base HTML framework |
-| ess-dashboard | css | Base CSS styles |
-| ess-dashboard | js | JavaScript framework |
+| ComponentID   | TemplateType | Description          |
+| ------------- | ------------ | -------------------- |
+| ess-dashboard | html         | Base HTML framework  |
+| ess-dashboard | css          | Base CSS styles      |
+| ess-dashboard | js           | JavaScript framework |
 
 ---
 
@@ -111,6 +119,7 @@ python spa_migrator.py --action migrate-all \
 ## 📞 HỖ TRỢ
 
 Nếu gặp lỗi:
+
 1. Kiểm tra error message trong SSMS
 2. Xác nhận database name chính xác
 3. Kiểm tra quyền INSERT/DELETE trên bảng `tblSPA_Templates`
@@ -118,4 +127,4 @@ Nếu gặp lỗi:
 
 ---
 
-*Tạo bởi: Migration Tool - 2025-11-26*
+_Tạo bởi: Migration Tool - 2025-11-26_
