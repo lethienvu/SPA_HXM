@@ -145,6 +145,7 @@
     --bg-overlay: rgba(17, 24, 39, 0.5);
     --bg-overlay-light: rgba(17, 24, 39, 0.3);
     --bg-overlay-strong: rgba(17, 24, 39, 0.7);
+    --bg-flat: #F8F5E9;
 
     /* ==========================================================================
        5. REFINED GLASS SYSTEM - macOS Monterey Style
@@ -184,9 +185,10 @@
        6. TYPOGRAPHY SYSTEM - Apple San Francisco
        ========================================================================== */
     /* Apple Font Stack */
-    --font-system: -apple-system, BlinkMacSystemFont, ''SF Pro Display'', ''Helvetica Neue'', Helvetica, Arial, sans-serif;
-    --font-system-rounded: -apple-system, BlinkMacSystemFont, ''SF Pro Rounded'', ''SF Pro Display'', sans-serif;
-    --font-system-mono: ''SF Mono'', ui-monospace, Monaco, ''Cascadia Code'', ''Roboto Mono'', monospace;
+    --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+    --font-system-rounded: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'SF Pro Display', sans-serif;
+    --font-system-mono: 'SF Mono', ui-monospace, Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
 
     /* Apple Typography Scale */
     --text-caption2: 0.6875rem;
@@ -269,7 +271,7 @@
     /* 128px */
 
     /* ==========================================================================
-       8. STRONG BORDER RADIUS SYSTEM - Apple''s Bold Approach
+       8. STRONG BORDER RADIUS SYSTEM - Apple's Bold Approach
        ========================================================================== */
     /* Strong Radius Scale */
     --radius-none: 0;
@@ -452,13 +454,16 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap");
+
 body {
-    font-family: var(--font-system);
+    font-family: "Be Vietnam Pro", sans-serif;
     font-size: var(--text-body);
     line-height: var(--leading-normal);
     font-weight: var(--font-regular);
     color: var(--text-primary);
-    background-color: var(--bg-secondary);
+    background-color: #F8F5E9 !important;
+    /* background-color: rgba(255, 241, 202, .2) !important; */
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;
@@ -522,16 +527,7 @@ a:hover {
 .app-container {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-}
-
-/* ==========================================================================
-   LAYOUT CONTAINER - Apple-style Spacing
-   ========================================================================== */
-.app-container {
-    position: relative;
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    background: var(--bg-flat);
 }
 
 /* ==========================================================================
@@ -553,13 +549,13 @@ a:hover {
 
 .icon--duotone .tone-1-stroke {
     stroke: var(--icon-accent-light);
-    stroke-width: 2px;
+    stroke-width: 1.4px;
     fill: none;
 }
 
 .icon--duotone .tone-2-stroke {
     stroke: var(--icon-primary);
-    stroke-width: 2px;
+    stroke-width: 1.4px;
     fill: none;
 }
 
@@ -568,7 +564,7 @@ a:hover {
    ========================================================================== */
 .navbar {
     position: fixed;
-    top: var(--space-6);
+    top: var(--space-4);
     right: var(--space-6);
     left: calc(300px + var(--space-12));
     height: var(--space-14);
@@ -583,18 +579,18 @@ a:hover {
     /* Layout */
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 var(--space-6);
     gap: var(--space-4);
 
     /* Smooth transitions */
     transition: all var(--duration-smooth) var(--ease-apple);
+}
 
-    /* Hover effects */
-    &:hover {
-        background: var(--glass-ultra-thick);
-        border-color: var(--glass-border-strong);
-        transform: translateY(-1px);
-    }
+.navbar:hover {
+    background: var(--glass-ultra-thick);
+    border-color: var(--glass-border-strong);
+    transform: translateY(-1px);
 }
 
 /* Collapsed sidebar adjustment */
@@ -631,34 +627,35 @@ a:hover {
     overflow: hidden;
 
     /* Liquid interaction */
-    &::before {
-        content: '''';
-        position: absolute;
-        inset: 0;
-        background: var(--glass-tinted-brand);
-        border-radius: inherit;
-        opacity: 0;
-        transform: scale(0.8);
-        transition: all var(--duration-quick) var(--ease-apple);
-    }
+}
+
+.navbar .nav-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--glass-tinted-brand);
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all var(--duration-quick) var(--ease-apple);
 }
 
 .navbar .nav-link:hover {
     color: var(--brand-primary);
     transform: translateY(-1px);
+}
 
-    &::before {
-        opacity: 1;
-        transform: scale(1);
-    }
+.navbar .nav-link:hover::before {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .navbar .nav-link:active {
     transform: translateY(0);
+}
 
-    &::before {
-        background: var(--glass-tinted-blue);
-    }
+.navbar .nav-link:active::before {
+    background: var(--glass-tinted-blue);
 }
 
 /* Apple-style Search Bar */
@@ -682,19 +679,17 @@ a:hover {
     font-family: var(--font-system);
     font-weight: var(--font-regular);
     transition: all var(--duration-quick) var(--ease-apple);
+}
 
-    /* Apple-style placeholder */
-    &::placeholder {
-        color: var(--text-tertiary);
-        font-weight: var(--font-regular);
-    }
+.navbar-search .form-control::placeholder {
+    color: var(--text-tertiary);
+    font-weight: var(--font-regular);
+}
 
-    /* Enhanced focus state */
-    &:focus {
-        outline: none;
-        background: var(--glass-thick);
-        transform: translateY(-1px);
-    }
+.navbar-search .form-control:focus {
+    outline: none;
+    background: var(--glass-thick);
+    transform: translateY(-1px);
 }
 
 .navbar-search .search-icon {
@@ -821,8 +816,8 @@ a:hover {
    ========================================================================== */
 .sidebar {
     position: fixed;
-    top: var(--space-6);
-    left: var(--space-6);
+    top: var(--space-4);
+    left: var(--space-4);
     bottom: var(--space-6);
     width: 280px;
     z-index: var(--z-fixed);
@@ -830,147 +825,131 @@ a:hover {
     flex-direction: column;
 
     /* Ultimate Liquid Glass Effect */
-    background:
-        linear-gradient(135deg, var(--glass-ultra-thick) 0%, var(--glass-thick) 100%),
-        radial-gradient(circle at top left, var(--glass-tinted-brand) 0%, transparent 50%);
-    backdrop-filter: var(--blur-ultra-strong);
-    -webkit-backdrop-filter: var(--blur-ultra-strong);
-    border: 1px solid var(--glass-border-medium);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: var(--radius-sidebar);
-    box-shadow: var(--shadow-glass-lg);
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.01), 0px 16px 32px rgba(0, 0, 0, 0.015), 0px 8px 16px rgba(0, 0, 0, 0.02);
 
     /* Smooth transitions for all states */
     transition: all var(--duration-smooth) var(--ease-apple);
+}
 
-    /* Multi-layer glass effect */
-    &::before {
-        content: '''';
-        position: absolute;
-        inset: 1px;
-        background: linear-gradient(135deg, var(--glass-border-ultra-light) 0%, transparent 50%, var(--glass-border-light) 100%);
-        border-radius: calc(var(--radius-sidebar) - 1px);
-        pointer-events: none;
-        opacity: 0.6;
-    }
+.sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: linear-gradient(135deg, var(--glass-border-ultra-light) 0%, transparent 50%, var(--glass-border-light) 100%);
+    border-radius: calc(var(--radius-sidebar) - 1px);
+    pointer-events: none;
+    opacity: 0.6;
+}
 
-    /* Animated gradient overlay */
-    &::after {
-        content: '''';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-
-        /* ==========================================================================
-       NAVBAR AVATAR — .user-avatar-navbar
-       - Uses design tokens from :root (size, colors, shadows)
-       - Responsive, centered content, thin border, subtle hover shadow/border
-       - Works with <img>, <svg>, or initial letters inside a <button> or <div>
-       ========================================================================== */
-        .user-avatar-navbar {
-            /* local overrideable size (falls back to navbar token) */
-            --ua-size: var(--navbar-avatar-size, 2.5rem);
-
-            width: var(--ua-size);
-            height: var(--ua-size);
-
-            display: inline-grid;
-            place-items: center;
-            /* center icon/avatar */
-
-            /* circular avatar */
-            border-radius: var(--radius-full);
-
-            /* subtle base visuals */
-            background: var(--navbar-avatar-background, var(--bg-secondary));
-            border: 1px solid var(--navbar-avatar-border-color, var(--neutral-300));
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-
-            /* accessible, clickable element sizing */
-            min-width: var(--ua-size);
-            min-height: var(--ua-size);
-
-            overflow: hidden;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-
-            /* micro-interaction */
-            transition: transform var(--duration-quick) var(--ease-apple),
-                box-shadow var(--duration-snappy) var(--ease-apple),
-                border-color var(--duration-snappy) var(--ease-apple);
-
-            cursor: pointer;
-            vertical-align: middle;
-        }
-
-        .user-avatar-navbar img,
-        .user-avatar-navbar svg,
-        .user-avatar-navbar .initials {
-            width: calc(var(--ua-size) - 6px);
-            height: calc(var(--ua-size) - 6px);
-            border-radius: inherit;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Hover & focus states — thin border color change + gentle shadow */
-        .user-avatar-navbar:hover,
-        .user-avatar-navbar:focus {
-            transform: translateY(-2px);
-            box-shadow: var(--navbar-avatar-shadow-hover, 0 6px 14px rgba(0, 0, 0, 0.12));
-            border-color: var(--navbar-avatar-hover-border-color, var(--brand-primary));
-        }
-
-        .user-avatar-navbar:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        .user-avatar-navbar:focus-visible {
-            outline: 2px solid rgba(var(--brand-primary-hex, 115, 196, 29), 0.14);
-            outline-offset: 3px;
-        }
-
-        /* small/compact variants for tighter navbars */
-        .user-avatar-navbar--sm {
-            --ua-size: 1.75rem;
-        }
-
-        .user-avatar-navbar--md {
-            --ua-size: 2.25rem;
-        }
-
-        .user-avatar-navbar--lg {
-            --ua-size: 3rem;
-        }
-
-        /* Responsive tweak: reduce avatar on very small viewports */
-        @media (max-width: 480px) {
-            .user-avatar-navbar {
-                --ua-size: 2rem;
-            }
-        }
-
-        /* Example usage (HTML):
-       <button class="user-avatar-navbar" aria-label="Open user menu">
-           <img src="/assets/avatar.jpg" alt="User avatar" />
-       </button>
-
-       or for initials / icon:
-       <div class="user-avatar-navbar user-avatar-navbar--sm">
-           <span class="initials">LV</span>
-       </div>
-    */
-        height: 200%;
-        background: conic-gradient(from 0deg at 50% 50%,
+.sidebar::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg at 50% 50%,
             transparent 0deg,
             var(--glass-border-ultra-light) 30deg,
             transparent 60deg,
             var(--glass-border-light) 90deg,
             transparent 120deg);
-        border-radius: inherit;
-        opacity: 0.3;
-        animation: sidebarGradientRotate 20s linear infinite;
-        pointer-events: none;
+    border-radius: inherit;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   NAVBAR AVATAR — .user-avatar-navbar
+   - Uses design tokens from :root (size, colors, shadows)
+   - Responsive, centered content, thin border, subtle hover shadow/border
+   - Works with <img>, <svg>, or initial letters inside a <button> or <div>
+   ========================================================================== */
+.user-avatar-navbar {
+    /* local overrideable size (falls back to navbar token) */
+    --ua-size: var(--navbar-avatar-size, 2.5rem);
+
+    width: var(--ua-size);
+    height: var(--ua-size);
+
+    display: inline-grid;
+    place-items: center;
+    /* center icon/avatar */
+
+    /* circular avatar */
+    border-radius: var(--radius-full);
+
+    /* subtle base visuals */
+    background: var(--navbar-avatar-background, var(--bg-secondary));
+    border: 1px solid var(--navbar-avatar-border-color, var(--neutral-300));
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+
+    /* accessible, clickable element sizing */
+    min-width: var(--ua-size);
+    min-height: var(--ua-size);
+
+    overflow: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    /* micro-interaction */
+    transition: transform var(--duration-quick) var(--ease-apple),
+        box-shadow var(--duration-snappy) var(--ease-apple),
+        border-color var(--duration-snappy) var(--ease-apple);
+
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.user-avatar-navbar img,
+.user-avatar-navbar svg,
+.user-avatar-navbar .initials {
+    width: calc(var(--ua-size) - 6px);
+    height: calc(var(--ua-size) - 6px);
+    border-radius: inherit;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hover & focus states — thin border color change + gentle shadow */
+.user-avatar-navbar:hover,
+.user-avatar-navbar:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--navbar-avatar-shadow-hover, 0 6px 14px rgba(0, 0, 0, 0.12));
+    border-color: var(--navbar-avatar-hover-border-color, var(--brand-primary));
+}
+
+.user-avatar-navbar:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.user-avatar-navbar:focus-visible {
+    outline: 2px solid rgba(var(--brand-primary-hex, 115, 196, 29), 0.14);
+    outline-offset: 3px;
+}
+
+/* small/compact variants for tighter navbars */
+.user-avatar-navbar--sm {
+    --ua-size: 1.75rem;
+}
+
+.user-avatar-navbar--md {
+    --ua-size: 2.25rem;
+}
+
+.user-avatar-navbar--lg {
+    --ua-size: 3rem;
+}
+
+/* Responsive tweak: reduce avatar on very small viewports */
+@media (max-width: 480px) {
+    .user-avatar-navbar {
+        --ua-size: 2rem;
     }
 }
 
@@ -986,17 +965,13 @@ a:hover {
 
 /* Collapsed State - Ultra Smooth */
 .sidebar.collapsed {
-    width: 80px;
+    width: 80px !important;
+    border-radius: var(--radius-3xl);
+}
 
-    /* Enhanced liquid effect when collapsed */
-    background:
-        radial-gradient(circle at center, var(--glass-ultra-thick) 0%, var(--glass-thick) 100%),
-        var(--glass-tinted-brand);
-
-    &::after {
-        animation-duration: 10s;
-        /* Faster rotation when collapsed */
-    }
+.sidebar.collapsed::after {
+    animation-duration: 10s;
+    /* Faster rotation when collapsed */
 }
 
 /* Smooth text transitions when collapsed */
@@ -1045,37 +1020,34 @@ a:hover {
 
     /* Apple-style transitions */
     transition: all var(--duration-quick) var(--ease-apple);
+}
 
-    /* Hover effect with haptic-like feedback */
-    &:hover {
-        background: var(--glass-thick);
-        border-color: var(--glass-border-medium);
-        transform: translateY(-1px) scale(1.02);
-        box-shadow:
-            0 4px 12px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 var(--glass-border-ultra-light);
-    }
+.sidebar-toggle-btn:hover {
+    background: var(--glass-thick);
+    border-color: var(--glass-border-medium);
+    transform: translateY(-1px) scale(1.02);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 var(--glass-border-ultra-light);
+}
 
-    /* Active state */
-    &:active {
-        transform: translateY(0) scale(0.98);
-        background: var(--glass-ultra-thick);
-    }
+.sidebar-toggle-btn:active {
+    transform: translateY(0) scale(0.98);
+    background: var(--glass-ultra-thick);
+}
 
-    /* Icon styling */
-    i {
-        font-size: var(--text-callout);
-        transition: transform var(--duration-quick) var(--ease-apple);
-    }
+.sidebar-toggle-btn i {
+    font-size: var(--text-callout);
+    transition: transform var(--duration-quick) var(--ease-apple);
 }
 
 /* Collapsed position adjustment */
 .sidebar.collapsed .sidebar-toggle-btn {
     margin: 0 auto;
+}
 
-    i {
-        transform: rotate(180deg);
-    }
+.sidebar.collapsed .sidebar-toggle-btn i {
+    transform: rotate(180deg);
 }
 
 /* Apple-style Sidebar Brand */
@@ -1095,12 +1067,11 @@ a:hover {
 
     /* Apple-style transitions */
     transition: all var(--duration-smooth) var(--ease-apple);
+}
 
-    /* Subtle interactive effect */
-    &:hover {
-        color: var(--brand-primary);
-        transform: translateY(-1px);
-    }
+.sidebar-brand:hover {
+    color: var(--brand-primary);
+    transform: translateY(-1px);
 }
 
 .sidebar-brand img {
@@ -1110,32 +1081,32 @@ a:hover {
     flex-shrink: 0;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     transition: all var(--duration-smooth) var(--ease-apple);
+}
 
-    /* Subtle glow effect on hover */
-    &:hover {
-        filter: drop-shadow(0 4px 8px rgba(115, 196, 29, 0.3));
-        transform: scale(1.02);
-    }
+.sidebar-brand img:hover {
+    filter: drop-shadow(0 4px 8px rgba(115, 196, 29, 0.3));
+    transform: scale(1.02);
 }
 
 /* Collapsed brand styling */
 .sidebar.collapsed .sidebar-brand {
     justify-content: center;
     gap: 0;
+}
 
-    span {
-        opacity: 0;
-        width: 0;
-        overflow: hidden;
-    }
+.sidebar.collapsed .sidebar-brand span {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
 }
 
 .sidebar.collapsed .sidebar-brand img {
     /* Smaller logo when collapsed */
-    height: var(--space-12);
-    width: var(--space-12);
+    max-width: var(--space-10);
+    height: var(--space-10);
+    width: var(--space-10);
     border-radius: var(--radius-lg);
-    content: url("data:image/svg+xml,%3Csvg width=''32'' height=''32'' viewBox=''0 0 500 500'' fill=''none'' xmlns=''http://www.w3.org/2000/svg''%3E%3Cpath d=''M117.991 455.538L15.6432 317.104C7.3432 305.875 2.12893 292.653 0.528929 278.765C-1.07583 264.878 0.986021 250.814 6.50983 237.978L74.848 79.9428C80.3669 67.1268 89.1526 55.9967 100.319 47.673C111.486 39.3497 124.643 34.1272 138.462 32.532L309.257 12.5147C323.081 10.931 337.077 13.0173 349.843 18.5636C362.605 24.1104 373.7 32.9234 382.009 44.1215L484.358 182.56C492.657 193.788 497.871 207.008 499.472 220.895C501.075 234.783 499.013 248.847 493.491 261.683L425.152 419.72C419.629 432.531 410.837 443.653 399.67 451.978C388.504 460.295 375.352 465.525 361.538 467.13L190.743 487.144C176.919 488.764 162.914 486.691 150.138 481.140C137.367 475.593 126.281 466.763 117.991 455.538Z'' fill=''%23004C39''/%3E%3Cpath d=''M171.385 284.054C141.616 296.947 114.398 314.059 88.2959 335.905C93.8908 315.806 116.9 292.782 140.088 283.469C150.748 279.188 161.787 275.825 172.73 272.28C183.388 268.828 194.144 265.674 205.674 262.14C205.674 200.409 205.674 138.449 205.674 75.8546C208.815 75.6499 211.187 75.2925 213.547 75.3716C249.667 76.5829 286.01 75.7688 321.85 79.6197C369.364 84.7247 398.311 120.691 398.079 169.087C397.85 216.758 368.15 251.117 320.856 257.178C302.659 259.511 284.214 259.996 265.865 261.019C258.139 261.449 250.367 261.09 241.809 261.09C241.809 314.857 241.809 367.743 241.809 421.386C229.712 421.386 218.392 421.386 206.173 421.386C206.173 372.95 206.173 324.23 206.173 275.512C199.382 292.305 201.144 311.326 189.422 326.764C189.422 318.003 189.422 309.24 189.422 300.478C188.717 300.376 188.011 300.273 187.307 300.172C183.692 315.57 180.076 330.97 176.46 346.368C175.801 346.268 175.141 346.169 174.482 346.07C173.637 336.169 172.792 326.267 171.947 316.368C171.434 316.295 170.921 316.224 170.409 316.151C167.486 331.032 164.564 345.911 161.642 360.792C160.843 360.694 160.044 360.595 159.246 360.498C158.467 354.246 157.689 347.995 156.911 341.744C156.114 341.566 155.317 341.386 154.519 341.208C151.103 352.147 147.687 363.086 144.271 374.024C143.685 373.995 143.1 373.965 142.514 373.935C142.514 366.472 142.514 359.009 142.514 351.544C130.65 368.755 130.005 391.677 111.589 404.931C108.329 377.317 135.92 323.872 172.909 286.188C172.863 284.947 172.124 284.501 171.385 284.054ZM333.689 118.914C304.079 105.545 272.68 111.318 241.796 109.267C241.796 148.821 241.796 187.292 241.796 228.53C266.828 227.047 291.401 226.996 315.553 223.775C340.746 220.417 355.652 203.772 360.871 179.137C365.761 156.064 355.476 133.322 333.689 118.914Z'' fill=''%23FBFCFC''/%3E%3C/svg%3E");
+    content: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 500 500' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M117.991 455.538L15.6432 317.104C7.3432 305.875 2.12893 292.653 0.528929 278.765C-1.07583 264.878 0.986021 250.814 6.50983 237.978L74.848 79.9428C80.3669 67.1268 89.1526 55.9967 100.319 47.673C111.486 39.3497 124.643 34.1272 138.462 32.532L309.257 12.5147C323.081 10.931 337.077 13.0173 349.843 18.5636C362.605 24.1104 373.7 32.9234 382.009 44.1215L484.358 182.56C492.657 193.788 497.871 207.008 499.472 220.895C501.075 234.783 499.013 248.847 493.491 261.683L425.152 419.72C419.629 432.531 410.837 443.653 399.67 451.978C388.504 460.295 375.352 465.525 361.538 467.13L190.743 487.144C176.919 488.764 162.914 486.691 150.138 481.140C137.367 475.593 126.281 466.763 117.991 455.538Z' fill='%23004C39'/%3E%3Cpath d='M171.385 284.054C141.616 296.947 114.398 314.059 88.2959 335.905C93.8908 315.806 116.9 292.782 140.088 283.469C150.748 279.188 161.787 275.825 172.73 272.28C183.388 268.828 194.144 265.674 205.674 262.14C205.674 200.409 205.674 138.449 205.674 75.8546C208.815 75.6499 211.187 75.2925 213.547 75.3716C249.667 76.5829 286.01 75.7688 321.85 79.6197C369.364 84.7247 398.311 120.691 398.079 169.087C397.85 216.758 368.15 251.117 320.856 257.178C302.659 259.511 284.214 259.996 265.865 261.019C258.139 261.449 250.367 261.09 241.809 261.09C241.809 314.857 241.809 367.743 241.809 421.386C229.712 421.386 218.392 421.386 206.173 421.386C206.173 372.95 206.173 324.23 206.173 275.512C199.382 292.305 201.144 311.326 189.422 326.764C189.422 318.003 189.422 309.24 189.422 300.478C188.717 300.376 188.011 300.273 187.307 300.172C183.692 315.57 180.076 330.97 176.46 346.368C175.801 346.268 175.141 346.169 174.482 346.07C173.637 336.169 172.792 326.267 171.947 316.368C171.434 316.295 170.921 316.224 170.409 316.151C167.486 331.032 164.564 345.911 161.642 360.792C160.843 360.694 160.044 360.595 159.246 360.498C158.467 354.246 157.689 347.995 156.911 341.744C156.114 341.566 155.317 341.386 154.519 341.208C151.103 352.147 147.687 363.086 144.271 374.024C143.685 373.995 143.1 373.965 142.514 373.935C142.514 366.472 142.514 359.009 142.514 351.544C130.65 368.755 130.005 391.677 111.589 404.931C108.329 377.317 135.92 323.872 172.909 286.188C172.863 284.947 172.124 284.501 171.385 284.054ZM333.689 118.914C304.079 105.545 272.68 111.318 241.796 109.267C241.796 148.821 241.796 187.292 241.796 228.53C266.828 227.047 291.401 226.996 315.553 223.775C340.746 220.417 355.652 203.772 360.871 179.137C365.761 156.064 355.476 133.322 333.689 118.914Z' fill='%23FBFCFC'/%3E%3C/svg%3E");
 }
 
 /* Apple-style Navigation Menu */
@@ -1147,24 +1118,23 @@ a:hover {
     position: relative;
     z-index: 2;
     overflow-y: auto;
+}
 
-    /* Custom scrollbar for Apple feel */
-    &::-webkit-scrollbar {
-        width: 2px;
-    }
+.sidebar-nav::-webkit-scrollbar {
+    width: 2px;
+}
 
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
+.sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
 
-    &::-webkit-scrollbar-thumb {
-        background: var(--glass-border-medium);
-        border-radius: var(--radius-full);
-    }
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: var(--glass-border-medium);
+    border-radius: var(--radius-full);
+}
 
-    &::-webkit-scrollbar-thumb:hover {
-        background: var(--glass-border-strong);
-    }
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: var(--glass-border-strong);
 }
 
 .sidebar-nav .nav-item {
@@ -1172,30 +1142,30 @@ a:hover {
 
     /* Staggered animation on load */
     animation: navItemSlideIn var(--duration-moderate) var(--ease-apple) both;
+}
 
-    &:nth-child(1) {
-        animation-delay: 0ms;
-    }
+.sidebar-nav .nav-item:nth-child(1) {
+    animation-delay: 0ms;
+}
 
-    &:nth-child(2) {
-        animation-delay: 50ms;
-    }
+.sidebar-nav .nav-item:nth-child(2) {
+    animation-delay: 50ms;
+}
 
-    &:nth-child(3) {
-        animation-delay: 100ms;
-    }
+.sidebar-nav .nav-item:nth-child(3) {
+    animation-delay: 100ms;
+}
 
-    &:nth-child(4) {
-        animation-delay: 150ms;
-    }
+.sidebar-nav .nav-item:nth-child(4) {
+    animation-delay: 150ms;
+}
 
-    &:nth-child(5) {
-        animation-delay: 200ms;
-    }
+.sidebar-nav .nav-item:nth-child(5) {
+    animation-delay: 200ms;
+}
 
-    &:nth-child(6) {
-        animation-delay: 250ms;
-    }
+.sidebar-nav .nav-item:nth-child(6) {
+    animation-delay: 250ms;
 }
 
 @keyframes navItemSlideIn {
@@ -1237,33 +1207,31 @@ a:hover {
     /* Multi-layer liquid effect */
     background: transparent;
     transition: all var(--duration-quick) var(--ease-apple);
+}
 
-    /* Liquid glass hover backdrop */
-    &::before {
-        content: '''';
-        position: absolute;
-        inset: 0;
-        background: var(--glass-tinted-brand);
-        border-radius: inherit;
-        opacity: 0;
-        transform: scale(0.8);
-        transition: all var(--duration-quick) var(--ease-spring);
-    }
+.sidebar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--glass-tinted-brand);
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all var(--duration-quick) var(--ease-spring);
+}
 
-    /* Active indicator */
-    &::after {
-        content: '''';
-        position: absolute;
-        right: var(--space-2);
-        top: 50%;
-        transform: translateY(-50%) scale(0);
-        width: var(--space-1);
-        height: var(--space-6);
-        background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-light) 100%);
-        border-radius: var(--radius-full);
-        transition: all var(--duration-quick) var(--ease-spring);
-        box-shadow: 0 0 8px var(--brand-primary);
-    }
+.sidebar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    right: var(--space-2);
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: var(--space-1);
+    height: var(--space-6);
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-light) 100%);
+    border-radius: var(--radius-full);
+    transition: all var(--duration-quick) var(--ease-spring);
+    box-shadow: 0 0 8px var(--brand-primary);
 }
 
 /* Collapsed Navigation Links */
@@ -1271,38 +1239,35 @@ a:hover {
     justify-content: center;
     padding: var(--space-3) var(--space-2);
     gap: 0;
+}
 
-    /* Enhanced collapsed effect */
-    &:hover {
-        transform: translateY(-2px) scale(1.05);
-        background: var(--glass-regular);
-        border: 1px solid var(--glass-border-light);
-        box-shadow:
-            0 8px 20px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 var(--glass-border-ultra-light);
+.sidebar.collapsed .sidebar-nav .nav-link:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: var(--glass-regular);
+    border: 1px solid var(--glass-border-light);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 var(--glass-border-ultra-light);
+}
 
-        &::before {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-    }
+.sidebar.collapsed .sidebar-nav .nav-link:hover::before {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .sidebar.collapsed .sidebar-nav .nav-link.active {
     background: var(--glass-thick);
     border: 1px solid var(--glass-border-medium);
+}
 
-    &::after {
-        display: none;
-        /* Hide right indicator when collapsed */
-    }
+.sidebar.collapsed .sidebar-nav .nav-link.active::after {
+    display: none;
+}
 
-    /* Show bottom indicator instead */
-    &::before {
-        opacity: 1;
-        transform: scale(1);
-        background: var(--glass-tinted-brand);
-    }
+.sidebar.collapsed .sidebar-nav .nav-link.active::before {
+    opacity: 1;
+    transform: scale(1);
+    background: var(--glass-tinted-brand);
 }
 
 .sidebar.collapsed .sidebar-nav .nav-link .nav-icon {
@@ -1415,7 +1380,7 @@ a:hover {
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    color: var(--text-primary);
+    color: var(--text-quaternary);
     text-decoration: none;
     border-radius: 12px;
     transition: all var(--duration-normal) var(--ease-in-out);
@@ -1453,7 +1418,7 @@ a:hover {
 }
 
 .sidebar-bottom a::before {
-    content: '''';
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -1523,7 +1488,7 @@ a:hover {
 }
 
 .sidebar.collapsed [data-tooltip]:hover::before {
-    content: '''';
+    content: '';
     position: absolute;
     left: 100%;
     top: 50%;
@@ -1540,13 +1505,13 @@ a:hover {
 .main-content {
     margin-left: calc(280px + var(--space-12));
     /* Sidebar width + gap */
-    margin-top: calc(var(--space-14) + var(--space-12));
+    margin-top: calc(var(--space-8) + var(--space-12));
     /* Navbar height + gap */
     min-height: calc(100vh - var(--space-14) - var(--space-12));
     padding: var(--space-6);
     background-color: transparent;
     position: relative;
-
+    padding-left: 0;
     /* Smooth transitions */
     transition: all var(--duration-smooth) var(--ease-apple);
 }
@@ -1583,7 +1548,7 @@ a:hover {
 
     /* Liquid effect background */
     &::before {
-        content: '''';
+        content: '';
         position: absolute;
         inset: 0;
         background: inherit;
@@ -1711,7 +1676,7 @@ a:hover {
 
     /* Glass highlight effect */
     &::before {
-        content: '''';
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -1765,15 +1730,25 @@ a:hover {
         bottom: 0;
         border-radius: 0 var(--radius-sidebar) var(--radius-sidebar) 0;
         width: 280px;
+    }
 
-        &.show {
-            transform: translateX(0);
-        }
+    .sidebar.show {
+        transform: translateX(0);
+    }
 
-        /* Enhanced mobile backdrop */
-        &::after {
-            animation-duration: 15s;
-        }
+    /* Enhanced mobile backdrop */
+    .sidebar::after {
+        animation-duration: 15s;
+    }
+
+    /* Mobile collapsed sidebar */
+    .sidebar.collapsed {
+        width: 80px;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.collapsed.show {
+        transform: translateX(0);
     }
 
     /* Mobile Main Content */
@@ -2132,8 +2107,6 @@ a:hover {
     backdrop-filter: var(--blur-md);
     -webkit-backdrop-filter: var(--blur-md);
     border: 1px solid var(--glass-border-light);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-glass-sm);
 }
 
 .use-cases {
@@ -2267,7 +2240,7 @@ a:hover {
     }
 
     .bottom-nav-item::before {
-        content: '''';
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -2338,7 +2311,7 @@ a:hover {
 
     /* Home indicator */
     .bottom-nav::after {
-        content: '''';
+        content: '';
         position: absolute;
         bottom: 8px;
         left: 50%;
@@ -2689,7 +2662,7 @@ a:hover {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(var(--space-4));
+        transform: translateY(10px);
     }
 
     to {
@@ -2701,7 +2674,7 @@ a:hover {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(var(--space-8));
+        transform: translateY(20px);
     }
 
     to {
@@ -3012,7 +2985,7 @@ a:hover {
 .color-value {
     font-size: 12px;
     color: var(--text-secondary, #6b7280);
-    font-family: ''Courier New'', monospace;
+    font-family: 'Courier New', monospace;
 }
 
 /* Size Demo */
@@ -3191,7 +3164,7 @@ a:hover {
     border-radius: var(--radius-sm, 6px);
     overflow-x: auto;
     margin: 0.75rem 0;
-    font-family: ''Courier New'', monospace;
+    font-family: 'Courier New', monospace;
     font-size: 13px;
     line-height: 1.6;
 }
@@ -3792,6 +3765,7 @@ a:hover {
     border: 1px solid var(--glass-border-light);
     border-radius: var(--radius-button-lg);
     padding: var(--space-6);
+    margin-bottom: var(--space-10);
     backdrop-filter: var(--blur-md);
     -webkit-backdrop-filter: var(--blur-md);
     max-width: var(--container-sm);

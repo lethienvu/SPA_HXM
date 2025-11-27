@@ -183,6 +183,11 @@ class Router {
 
       // Update active nav link
       this.updateActiveNavLink(route);
+
+      // Gọi callback cập nhật topnav nếu có
+      if (typeof this.onRouteChange === "function") {
+        this.onRouteChange(route);
+      }
     } catch (error) {
       console.error("Error loading component:", error);
       console.error("Component type:", typeof Comp);

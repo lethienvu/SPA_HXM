@@ -129,7 +129,7 @@ class Loading {
 
             .spinner-pulse::before,
             .spinner-pulse::after {
-                content: '''';
+                content: ';
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -163,7 +163,7 @@ class Loading {
             }
 
             .progress-bar.animated::after {
-                content: '''';
+                content: ';
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -265,7 +265,7 @@ class Loading {
             }
 
             .btn.loading::after {
-                content: '''';
+                content: ';
                 position: absolute;
                 top: 50%;
                 left: 50%;

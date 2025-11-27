@@ -300,7 +300,7 @@ class Toast {
   createCloseButton() {
     const closeBtn = document.createElement("button");
     closeBtn.className = "toast-close-btn";
-    closeBtn.innerHTML = ''<i class="bi bi-x"></i>'';
+    closeBtn.innerHTML = '<i class="bi bi-x"></i>';
     closeBtn.style.cssText = `
             position: absolute;
             top: var(--space-2);
