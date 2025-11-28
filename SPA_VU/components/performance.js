@@ -1,7 +1,7 @@
 // Performance Evaluation Component - Paradise HR SPA
-import { Component } from "../app.js";
 
-export default class PerformanceManagement extends Component {
+
+class PerformanceManagement extends Component {
   constructor(props) {
     super(props);
     this.state = {

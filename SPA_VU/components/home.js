@@ -1,7 +1,5 @@
 // Home Dashboard Component - Paradise HR SPA
-import { Component } from "../app.js";
-
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {

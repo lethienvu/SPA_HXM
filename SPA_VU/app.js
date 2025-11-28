@@ -49,6 +49,17 @@ class Router {
     this.handleLinkClick = this.handleLinkClick.bind(this);
     this.onPopState = this.onPopState.bind(this);
     this.mode = "pushState" in history ? "history" : "hash";
+
+    // Calculate base path for relative routing
+    this.basePath = (() => {
+      const path = location.pathname;
+      const segments = path.split("/").filter((s) => s);
+      // Remove file extension from path
+      if (segments.length > 0 && segments[segments.length - 1].includes(".")) {
+        segments.pop();
+      }
+      return segments.length > 0 ? "/" + segments.join("/") : "";
+    })();
   }
 
   start() {
@@ -65,20 +76,35 @@ class Router {
   }
 
   getCurrentPath() {
+    let path;
     if (this.mode === "history") {
-      return location.pathname || "/";
+      path = location.pathname || "/";
     } else {
-      return location.hash.replace("#", "") || "/";
+      path = location.hash.replace("#", "") || "/";
     }
+
+    // Remove basePath to get relative path
+    if (this.basePath && path.startsWith(this.basePath)) {
+      path = path.substring(this.basePath.length) || "/";
+    }
+
+    return path;
   }
 
   handleLinkClick(e) {
     // delegate link clicks with data-link attribute
     const a = e.target.closest("a[data-link]");
     if (!a) return;
-    const href = a.getAttribute("href");
+    let href = a.getAttribute("href");
     if (!href) return;
+
     e.preventDefault();
+
+    // Convert relative href to absolute path if needed
+    if (!href.startsWith("/")) {
+      href = "/" + href;
+    }
+
     this.navigate(href);
   }
 
@@ -124,19 +150,13 @@ class Router {
 
     // update history
     if (!opts.fromPop) {
+      const fullPath =
+        this.basePath +
+        (route.pathWithParams ? route.pathWithParams : route.path);
+
       if (this.mode === "history") {
-        if (opts.replace)
-          history.replaceState(
-            {},
-            "",
-            route.pathWithParams ? route.pathWithParams : route.path
-          );
-        else
-          history.pushState(
-            {},
-            "",
-            route.pathWithParams ? route.pathWithParams : route.path
-          );
+        if (opts.replace) history.replaceState({}, "", fullPath);
+        else history.pushState({}, "", fullPath);
       } else {
         const hash = route.pathWithParams ? route.pathWithParams : route.path;
         if (opts.replace) location.replace("#" + hash);
@@ -183,11 +203,6 @@ class Router {
 
       // Update active nav link
       this.updateActiveNavLink(route);
-
-      // Gọi callback cập nhật topnav nếu có
-      if (typeof this.onRouteChange === "function") {
-        this.onRouteChange(route);
-      }
     } catch (error) {
       console.error("Error loading component:", error);
       console.error("Component type:", typeof Comp);
@@ -213,8 +228,9 @@ class Router {
     // Add active class to current route
     const currentPath = route.path;
     if (currentPath !== "*") {
+      const fullPath = this.basePath + currentPath;
       const activeLink = document.querySelector(
-        `.sidebar-nav .nav-link[href="${currentPath}"]`
+        `.sidebar-nav .nav-link[href="${fullPath}"]`
       );
       if (activeLink) {
         activeLink.classList.add("active");
@@ -235,5 +251,3 @@ class Router {
     return obj;
   }
 }
-
-export { Component, Router };

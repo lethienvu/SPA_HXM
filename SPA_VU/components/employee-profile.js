@@ -1,7 +1,5 @@
 // Personnel File Management Component - Paradise HR SPA
-import { Component } from "../app.js";
-
-export default class EmployeeProfile extends Component {
+ class EmployeeProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {

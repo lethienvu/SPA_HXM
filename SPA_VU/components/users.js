@@ -1,7 +1,7 @@
 // Users component (fetch demo)
 import { Component } from '../app.js';
 
-export default class Users extends Component {
+window.Users = class Users extends Component {
   constructor(props) {
     super(props);
     this.state = { users: [], loading: false, error: null };

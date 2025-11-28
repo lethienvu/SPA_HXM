@@ -1,11 +1,5 @@
 // Settings Component - Paradise HR SPA
-import { Component } from "../app.js";
-import {
-  renderSidebarPreferencesSetting,
-  setupSidebarPreferences,
-} from "./sidebar-preferences.js";
-
-export default class Settings extends Component {
+window.Settings = class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {

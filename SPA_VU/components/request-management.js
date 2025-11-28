@@ -1,7 +1,5 @@
 // Request Management Component - Paradise HR SPA
-import { Component } from "../app.js";
-
-export default class RequestManagement extends Component {
+class RequestManagement extends Component {
   constructor(props) {
     super(props);
     this.state = {

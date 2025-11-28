@@ -1,5 +1,3 @@
-// Sidebar Toggle with LocalStorage Cache - Paradise HR SPA
-// This module handles sidebar toggle state persistence
 
 class SidebarManager {
   constructor() {
@@ -165,7 +163,7 @@ if (
   document.readyState === "complete" ||
   document.readyState === "interactive"
 ) {
-  // DOM is already ready
+  console.log("Initializing SidebarManager immediately...");
   initializeSidebarManager();
 } else if (document.readyState === "loading") {
   // Wait for DOM
@@ -175,5 +173,3 @@ if (
 // Also set up initialization via script tag in HTML to ensure early init
 window.initSidebarManager = initializeSidebarManager;
 
-// Export for use in modules
-export { SidebarManager };

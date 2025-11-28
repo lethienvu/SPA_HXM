@@ -1,7 +1,7 @@
 // Notifications Component - Paradise HR SPA
-import { Component } from "../app.js";
+// Component is global
 
-export default class Notifications extends Component {
+window.Notifications = class Notifications extends Component {
   constructor(props) {
     super(props);
     this.state = {

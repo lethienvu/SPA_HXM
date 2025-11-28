@@ -292,4 +292,4 @@ window.debugIconsInline = {
   },
 };
 
-export default ParadiseIconsInline;
+window.ParadiseIconsInline = ParadiseIconsInline;

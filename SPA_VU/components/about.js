@@ -1,7 +1,7 @@
 // About component
-import { Component } from "../app.js";
+// Component is global
 
-export default class About extends Component {
+window.About = class About extends Component {
   render() {
     return `
       <div>

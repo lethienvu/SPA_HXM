@@ -11,7 +11,6 @@ class Loading {
   }
 
   init() {
-    // Thêm CSS animations nếu chưa có
     this.injectStyles();
   }
 
@@ -68,7 +67,6 @@ class Loading {
                 50% { opacity: 1; }
             }
 
-            /* Loading Spinner Variants */
             .spinner {
                 display: inline-block;
                 position: relative;
@@ -144,7 +142,6 @@ class Loading {
                 animation-delay: 1s;
             }
 
-            /* Progress Bar */
             .progress {
                 background: var(--neutral-200);
                 border-radius: var(--radius-full);
@@ -178,7 +175,6 @@ class Loading {
                 animation: skeleton-wave 2s infinite;
             }
 
-            /* Skeleton Loading */
             .skeleton {
                 background: linear-gradient(
                     90deg,
@@ -257,7 +253,6 @@ class Loading {
                 font-weight: var(--font-medium);
             }
 
-            /* Button Loading States */
             .btn.loading {
                 position: relative;
                 color: transparent !important;
@@ -288,9 +283,6 @@ class Loading {
     document.head.appendChild(style);
   }
 
-  /**
-   * Tạo spinner element
-   */
   createSpinner(type = "border", size = "md", color = "primary") {
     const spinner = document.createElement("div");
     spinner.className = `spinner spinner-${type}`;
@@ -327,9 +319,6 @@ class Loading {
     return spinner;
   }
 
-  /**
-   * Hiển thị loading toàn màn hình
-   */
   showFullScreen(options = {}) {
     const defaults = {
       message: "Đang tải...",
@@ -342,16 +331,13 @@ class Loading {
     const config = { ...defaults, ...options };
     const loadingId = "loading-" + Date.now();
 
-    // Tạo overlay
     const overlay = document.createElement("div");
     overlay.id = loadingId;
     overlay.className = "loading-overlay";
 
-    // Tạo content
     const content = document.createElement("div");
     content.className = "loading-content";
 
-    // Thêm spinner
     const spinner = this.createSpinner(
       config.spinner,
       config.size,
@@ -359,7 +345,6 @@ class Loading {
     );
     content.appendChild(spinner);
 
-    // Thêm message
     if (config.message) {
       const message = document.createElement("div");
       message.className = "loading-text";
@@ -370,12 +355,10 @@ class Loading {
     overlay.appendChild(content);
     document.body.appendChild(overlay);
 
-    // Animation show
     requestAnimationFrame(() => {
       overlay.classList.add("show");
     });
 
-    // Lưu vào map
     this.activeLoaders.set(loadingId, {
       element: overlay,
       type: "fullscreen",
@@ -384,9 +367,6 @@ class Loading {
     return loadingId;
   }
 
-  /**
-   * Ẩn loading toàn màn hình
-   */
   hideFullScreen(loadingId) {
     const loader = this.activeLoaders.get(loadingId);
     if (!loader || loader.type !== "fullscreen") return;
@@ -402,9 +382,6 @@ class Loading {
     }, 300);
   }
 
-  /**
-   * Hiển thị loading cho button
-   */
   showButtonLoading(buttonElement, text = null) {
     if (!buttonElement) return;
 
@@ -421,9 +398,6 @@ class Loading {
     };
   }
 
-  /**
-   * Ẩn loading cho button
-   */
   hideButtonLoading(buttonElement) {
     if (!buttonElement) return;
 
@@ -435,9 +409,6 @@ class Loading {
     }
   }
 
-  /**
-   * Tạo progress bar
-   */
   createProgressBar(options = {}) {
     const defaults = {
       value: 0,
@@ -455,7 +426,6 @@ class Loading {
     container.id = progressId;
     container.className = "progress-container";
 
-    // Label
     if (config.showLabel) {
       const label = document.createElement("div");
       label.className = "progress-label";
@@ -475,7 +445,6 @@ class Loading {
       container.appendChild(label);
     }
 
-    // Progress bar
     const progress = document.createElement("div");
     progress.className = "progress";
     progress.style.height = config.height + "px";
@@ -523,9 +492,6 @@ class Loading {
     }
   }
 
-  /**
-   * Tạo skeleton loading
-   */
   createSkeleton(type = "text", options = {}) {
     const skeleton = document.createElement("div");
 
@@ -584,7 +550,6 @@ class Loading {
             `;
 
       if (type === "list") {
-        // Avatar + Text skeleton
         const flex = document.createElement("div");
         flex.style.cssText =
           "display: flex; gap: var(--space-3); align-items: center;";
@@ -615,9 +580,7 @@ class Loading {
     return skeletonId;
   }
 
-  /**
-   * Xóa skeleton và hiển thị nội dung gốc
-   */
+
   removeSkeleton(container) {
     const originalContent = container.getAttribute("data-original-content");
     if (originalContent !== null) {
@@ -639,8 +602,6 @@ class Loading {
   }
 }
 
-// Export để sử dụng trong SPA framework
 window.Loading = Loading;
 
-// Tạo instance global
 window.loading = new Loading();

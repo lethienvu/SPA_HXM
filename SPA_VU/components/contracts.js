@@ -1,7 +1,6 @@
 // Contracts Management Component - Paradise HR SPA
-import { Component } from "../app.js";
 
-export default class ContractManagement extends Component {
+class ContractManagement extends Component {
   constructor(props) {
     super(props);
     this.state = {
